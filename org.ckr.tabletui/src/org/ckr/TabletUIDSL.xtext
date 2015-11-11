@@ -1,0 +1,159 @@
+grammar org.ckr.TabletUIDSL with org.eclipse.xtext.common.Terminals
+
+generate tabletUIDSL "http://www.ckr.org/TabletUIDSL"
+
+TabletUI:
+	settings = Settings
+	(elements += AbstractElement)*
+;
+
+Settings:
+	'settings'
+	'title' title = STRING
+	('fhemweb_url' fhemweb_url = STRING)?
+	'width' width = INT
+	'height' height = INT 
+	'columns' columns = INT
+	'rows' rows = INT
+	('debug' debug = BOOL)?
+	'drag&drop' dragdrop = BOOL
+	'gridster_margin' margin = INT
+	(settings += SettingsElement)*
+;
+
+SettingsElement:
+	CSS | Color
+;
+
+CSS:
+	'css' path = STRING
+;
+
+AbstractElement:
+	Page
+;
+
+BOOL: 
+	'true' | 'false'
+;
+Page:
+	name = ID '{'
+	(elements += Gridster)*
+	'}'
+;
+
+Gridster:
+	'{'
+	('header' header = STRING)?
+	'row' row = INT
+	'column' column = INT
+	('colspan' colspan = INT)?
+	('rowspan' rowspan = INT)?
+	(colors += Color)*
+	(widgets += Widget)*
+	'}'
+;
+
+Widget:
+	(Button | Label | SimpleClock | Symbol | Calview | SimpleChart)
+;
+
+Div:
+	'div' 
+	'{'
+		'class' class = STRING
+		(widgets += Widget)*
+	'}'	
+;
+
+Calview:
+	'calview'
+	'{'
+		device = STRING
+		'get' get = STRING
+		'max' max = INT
+		'class' class = STRING
+		('all-forecast-color' allFC = [Color])?
+		('all-today-color' allTC = [Color])?
+	'}'		 
+;
+
+
+Button:
+	'button' 
+	'{'
+		('url' url = [Page])?
+		'icon' icon = STRING
+		'class' class = STRING
+		('color' color = [Color])?
+		('background-color' backgroundColor = [Color])?
+	'}'		
+;
+
+
+
+Symbol: 
+	'symbol' '{'
+	device = STRING
+	'get' get = STRING
+	'getOn' (getOn += STRING)*
+	('getOff' (getOff += STRING)*)?
+	('class' class = STRING)?
+	('background-icon' bgicon = STRING)?
+	('background-on-color' onBackGroundColor = [Color])?
+	('on-color' onColor = [Color])?
+	('off-color' offColor = [Color])?
+	('icons'
+		'[' 
+			(icons += STRING)*
+		']')?
+	('onColors'
+		'[' 
+			(onColors += [Color])*
+		']')?
+	('onBackgroundColors'
+		'[' 
+			(onBackgroundColors += [Color])*
+		']')?
+	'}'
+;
+
+SimpleClock:
+	'SimpleClock'
+	'{'
+	(id = ID)?
+	'date-format' dateFormat = STRING
+	'time-format' timeFormat = STRING
+	('date-color' dateColor = [Color])?
+	('time-color' timeColor = [Color])?
+	('class' class = STRING)?
+	('style' style = STRING)?
+	('bg-colors' bgColors += [Color])*
+	'}'
+;
+
+SimpleChart:
+	'simpleChart' 
+	'{'
+	device = STRING
+	'log-config' log_device = STRING logfile = STRING
+	'columnSpec' columnSpec = STRING
+	'minValue' min = STRING
+	'maxValue' max = STRING
+	'xTicks' xTicks = INT
+	'yTicks' yTicks = INT
+	'daysago' daysago = INT	
+	'class' class = STRING	
+	'}'
+;
+
+Color:
+	'color' name = ID rgb = STRING
+;
+
+Label:
+	'label {'
+		id = ID
+	'}'
+	
+;
