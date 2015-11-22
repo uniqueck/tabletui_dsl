@@ -130,10 +130,27 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TabletUIDSLPackage.SWITCH:
+      {
+        org.ckr.tabletUIDSL.Switch switch_ = (org.ckr.tabletUIDSL.Switch)theEObject;
+        T result = caseSwitch(switch_);
+        if (result == null) result = caseWidget(switch_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.CUSTOM:
+      {
+        Custom custom = (Custom)theEObject;
+        T result = caseCustom(custom);
+        if (result == null) result = caseWidget(custom);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TabletUIDSLPackage.DIV:
       {
         Div div = (Div)theEObject;
         T result = caseDiv(div);
+        if (result == null) result = caseWidget(div);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -321,6 +338,38 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWidget(Widget object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSwitch(org.ckr.tabletUIDSL.Switch object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Custom</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Custom</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCustom(Custom object)
   {
     return null;
   }

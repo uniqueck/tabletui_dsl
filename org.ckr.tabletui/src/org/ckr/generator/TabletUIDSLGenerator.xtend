@@ -6,6 +6,8 @@ package org.ckr.generator
 import javax.inject.Inject
 import org.ckr.tabletUIDSL.Button
 import org.ckr.tabletUIDSL.Calview
+import org.ckr.tabletUIDSL.Custom
+import org.ckr.tabletUIDSL.Div
 import org.ckr.tabletUIDSL.Gridster
 import org.ckr.tabletUIDSL.Label
 import org.ckr.tabletUIDSL.Page
@@ -15,6 +17,7 @@ import org.ckr.tabletUIDSL.Symbol
 import org.ckr.tabletUIDSL.TabletUI
 import org.ckr.tabletUIDSL.Widget
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.util.Switch
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.naming.IQualifiedNameProvider
@@ -25,22 +28,22 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class TabletUIDSLGenerator implements IGenerator {
-	
+
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		generateHtml(resource, fsa);
 	}
-	
+
 	@Inject extension IQualifiedNameProvider;
-	
+
 	def generateHtml(Resource resource, IFileSystemAccess fsa) {
-		for(e: resource.allContents.toIterable.filter(typeof(Page))) {
-            fsa.generateFile(
-                e.fullyQualifiedName.toString("/") + ".html",
-                e.compile)
-        }
+		for (e : resource.allContents.toIterable.filter(typeof(Page))) {
+			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".html", e.compile)
+		}
 	}
-	
-	def compile(Page page) '''
+
+	def compile(
+		Page page
+	) '''
 		<!DOCTYPE html>
 		<html>
 			<head>
@@ -56,10 +59,10 @@ class TabletUIDSLGenerator implements IGenerator {
 					<meta name="fhemweb_url" content="«(page.eContainer as TabletUI).settings.fhemweb_url»">
 				«ENDIF»
 				«IF ((page.eContainer as TabletUI).settings.dragdrop == 'false')»
-				<meta name='gridster_disable' content='1'>
+					<meta name='gridster_disable' content='1'>
 				«ENDIF»
 				«IF ((page.eContainer as TabletUI).settings.debug == 'true')»
-				<meta name='debug' content='1' />
+					<meta name='debug' content='1' />
 				«ENDIF»
 				<link rel="stylesheet" href="./lib/jquery.gridster.min.css">
 				<link rel="stylesheet" href="./css/fhem-tablet-ui.css">
@@ -72,12 +75,12 @@ class TabletUIDSLGenerator implements IGenerator {
 				<link rel="stylesheet" href="./lib/openautomation.css">
 				
 				<script type="text/javascript" src="./js/jquery.min.js"></script>
-		        <script type="text/javascript" src="./lib/jquery.knob.mod.min.js"></script>
+				      <script type="text/javascript" src="./lib/jquery.knob.mod.min.js"></script>
 				<script type="text/javascript" src="./lib/jquery.toast.min.js"></script>
 				<script type="text/javascript" src="./lib/jquery.circlemenu.js"></script>
 				<script type="text/javascript" src="./lib/powerange.min.js"></script>
 				<script type="text/javascript" src="./lib/jquery.gridster.min.js"></script>
-		        <script type="text/javascript" src="./lib/fa-multi-button.min.js"></script>
+				      <script type="text/javascript" src="./lib/fa-multi-button.min.js"></script>
 				<script type="text/javascript" src="./js/widget_calview.js"></script>	
 				<script type="text/javascript" src="./js/fhem-tablet-ui.js"></script>
 				
@@ -87,7 +90,7 @@ class TabletUIDSLGenerator implements IGenerator {
 			<body>
 			<div class="gridster">
 				<ul>
-				«FOR g:page.elements»
+				«FOR g : page.elements»
 					«g.compile»
 				«ENDFOR»
 				</ul>
@@ -95,20 +98,22 @@ class TabletUIDSLGenerator implements IGenerator {
 			</body>			
 		</html>
 	'''
-	
-	
-	def compile(Gridster gridster)'''
+
+	def compile(
+		Gridster gridster
+	) '''
 		<li data-row="«gridster.row»" data-col="«gridster.column»" data-sizex="«IF gridster.colspan == 0»1«ELSE»«gridster.colspan»«ENDIF»" data-sizey="«IF (gridster.rowspan == 0)»1«ELSE»«gridster.rowspan»«ENDIF»" class="gs-w">
 			«IF gridster.header != null && !gridster.header.equals("")»
-			<header>«gridster.header»</header>
+				<header>«gridster.header»</header>
 			«ENDIF»
-			«FOR w:gridster.widgets»
+			«FOR w : gridster.widgets»
 				«w.compile»
 			«ENDFOR»
 		</li> 
 	'''
 	
-	def compile(Widget widget)'''
+
+	def compile(Widget widget) '''
 		«IF widget instanceof Button»
 			«(widget as Button).compile»
 		«ELSEIF widget instanceof SimpleClock»
@@ -119,48 +124,59 @@ class TabletUIDSLGenerator implements IGenerator {
 			«(widget as Calview).compile»
 			«ELSEIF widget instanceof SimpleChart»
 			«(widget as SimpleChart).compile»
+		«ELSEIF widget 	instanceof Div»
+			«(widget as Div).compile»
+		«ELSEIF widget instanceof Custom»
+		«(widget as Custom).compile»
+		«ELSEIF widget instanceof Label»
+		«(widget as Label).compile»	
+		«ELSEIF widget instanceof org.ckr.tabletUIDSL.Switch»
+		«(widget as org.ckr.tabletUIDSL.Switch).compile»	
 		«ENDIF»		
 	'''
-	
-	def compile(SimpleClock simpleClock)'''
+
+	def compile(SimpleClock simpleClock) '''
 		<div data-type="simpleClock"
 		data-date-format="«simpleClock.dateFormat»" data-time-format="«simpleClock.timeFormat»"
 		«IF simpleClock.class_ != null»
-		class="«simpleClock.class_»"
+			class="«simpleClock.class_»"
 		«ENDIF»
 		«IF simpleClock.style != null»
-		style="«simpleClock.style»"
+			style="«simpleClock.style»"
 		«ENDIF»
 		«IF simpleClock.dateColor != null»
-		data-date-color="«simpleClock.dateColor.rgb»"
+			data-date-color="«simpleClock.dateColor.rgb»"
 		«ENDIF»
 		«IF simpleClock.timeColor != null»
-		data-time-color="«simpleClock.timeColor.rgb»"
+			data-time-color="«simpleClock.timeColor.rgb»"
 		«ENDIF»
 		«IF simpleClock.bgColors.length == 2»
-		data-time-bg-colors='["«simpleClock.bgColors.get(0).rgb»","«simpleClock.bgColors.get(1).rgb»"]'
+			data-time-bg-colors='["«simpleClock.bgColors.get(0).rgb»","«simpleClock.bgColors.get(1).rgb»"]'
 		«ENDIF»
 		>
 		</div>
 	'''
-	
-	def compile(Label label)'''
-	
+
+	def compile(Label label) '''
+		<div data-type="label" class="«label.class_»" data-device="«label.device»" data-get="«label.get»">
+		</div>
 	'''
-	
-	def compile(Button button)'''
-		<div 
-			id="«button.id»" 
+
+	def compile(Button button) '''
+		<div  
 			class="«button.class_»" 
 			«IF button.backgroundColor != null»data-on-background-color="«button.backgroundColor.rgb»"«ENDIF» 
 			«IF button.color != null»data-color="«button.color.rgb»"«ENDIF» 
 			data-icon="«button.icon»" 
 			data-type="button" 
-			data-url="«button.id».html">
+			«IF button.url != null»
+				data-url="«(button.url as Page).name».html"
+			«ENDIF»
+			>
 		</div>
 	'''
-	
-	def compile (Symbol s)'''
+
+	def compile(Symbol s) '''
 		<div data-device="«s.device»" data-type="symbol"
 			data-get="«s.get»" 
 			«IF s.bgicon != null»
@@ -188,16 +204,20 @@ class TabletUIDSLGenerator implements IGenerator {
 				data-icon="«s.icons.get(0)»"
 			«ENDIF»></div>
 	'''
-	
-	def compile(Calview c)'''
+
+	def compile(
+		Calview c
+	) '''
 		<div data-device="«c.device»" data-type="calview"
 			data-get="«c.get»" data-max="«c.max»" 
 			«IF c.allFC != null»data-all-forecast-color="«c.allFC.rgb»"«ENDIF»
 			«IF c.allTC != null»data-all-today-color="«c.allTC.rgb»"«ENDIF»
 			«IF c.class != null»class="«c.class_»"«ENDIF»></div>
 	'''
-	
-	def compile(SimpleChart s)'''
+
+	def compile(
+		SimpleChart s
+	) '''
 		<div data-type="simplechart"
 			 data-device="«s.device»" data-logdevice="«s.log_device»" data-logfile="«s.logfile»" data-columnspec="«s.columnSpec»" 
 			 data-minvalue="«s.min»" 
@@ -207,5 +227,27 @@ class TabletUIDSLGenerator implements IGenerator {
 			 data-daysago="«s.daysago»" 
 			 «IF s.class_ != null»class="«s.class_»"«ENDIF»></div>
 	'''
+
+	def compile(Div div) '''
+		<div class="«div.class_»">
+			«FOR w : div.widgets»
+				«w.compile»
+			«ENDFOR»
+		</div>
+	'''
+
+	def compile(Custom custom) '''
+		«custom.code»
+	'''
 	
+	def comnpile(org.ckr.tabletUIDSL.Switch s)'''
+		<div data-type="switch" data-device="«s.device»" «IF s.get != null»date-get="«s.get»"«ENDIF»" 
+			«IF s.getOn != null»data-get-on="«s.getOn»"«ENDIF» «IF s.getOff != null»data-get-off="«s.getOff»"«ENDIF»
+			«IF s.onColor != null»data-on-color="«s.onColor.rgb»"«ENDIF»
+			«IF s.offColor != null»data-off-color="«s.offColor.rgb»"«ENDIF»
+			«IF s.icon != null»data-icon="«s.icon»"«ENDIF»
+			«IF s.backgroundIcon != null»data-background-icon="«s.backgroundIcon»"«ENDIF»>
+		</div>
+	'''
+
 }

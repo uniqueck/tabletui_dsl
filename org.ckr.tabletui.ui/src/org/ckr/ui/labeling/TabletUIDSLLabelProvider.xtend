@@ -5,16 +5,22 @@ package org.ckr.ui.labeling
 
 import com.google.inject.Inject
 import org.ckr.tabletUIDSL.Button
+import org.ckr.tabletUIDSL.Color
+import org.ckr.tabletUIDSL.Gridster
+import org.ckr.tabletUIDSL.Page
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import org.eclipse.swt.graphics.Image
 
 /**
  * Provides labels for EObjects.
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class TabletUIDSLLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+class TabletUIDSLLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
@@ -29,6 +35,34 @@ class TabletUIDSLLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 //	}
 
 	def text(Button button) {
-		'Button ' + button.id;
+		if (button.url != null) {
+			'Button [url = ' + (button.url as Page).name + "]";			
+		} else {
+			'Button'
+		}
+	}
+	
+//	def image(Color color) {
+//		new Image()color.rgb
+//	}
+
+	
+	
+	
+	def text(Color color) {
+		'Color[' +  color.name + "=" + color.rgb + ']'
+	}
+	
+	def text(Page page) {
+		'Page ' + page.name;
+	}
+	
+	
+	def text(Gridster gridster) {
+		if (gridster.header != null) {
+			'Gridster '+  gridster.header;
+		} else {
+		'Gridster'			
+		}
 	}
 }

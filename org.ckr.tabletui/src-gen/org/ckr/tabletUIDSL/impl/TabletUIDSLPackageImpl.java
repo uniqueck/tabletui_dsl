@@ -6,6 +6,7 @@ import org.ckr.tabletUIDSL.AbstractElement;
 import org.ckr.tabletUIDSL.Button;
 import org.ckr.tabletUIDSL.Calview;
 import org.ckr.tabletUIDSL.Color;
+import org.ckr.tabletUIDSL.Custom;
 import org.ckr.tabletUIDSL.Div;
 import org.ckr.tabletUIDSL.Gridster;
 import org.ckr.tabletUIDSL.Label;
@@ -14,6 +15,7 @@ import org.ckr.tabletUIDSL.Settings;
 import org.ckr.tabletUIDSL.SettingsElement;
 import org.ckr.tabletUIDSL.SimpleChart;
 import org.ckr.tabletUIDSL.SimpleClock;
+import org.ckr.tabletUIDSL.Switch;
 import org.ckr.tabletUIDSL.Symbol;
 import org.ckr.tabletUIDSL.TabletUI;
 import org.ckr.tabletUIDSL.TabletUIDSLFactory;
@@ -90,6 +92,20 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    * @generated
    */
   private EClass widgetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass switchEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass customEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -515,6 +531,136 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSwitch()
+  {
+    return switchEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_Device()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_Get()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_GetOn()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_GetOff()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_Class()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSwitch_OnColor()
+  {
+    return (EReference)switchEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSwitch_OffColor()
+  {
+    return (EReference)switchEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSwitch_OnBackGroundColor()
+  {
+    return (EReference)switchEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_BackgroundIcon()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSwitch_Icon()
+  {
+    return (EAttribute)switchEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCustom()
+  {
+    return customEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCustom_Code()
+  {
+    return (EAttribute)customEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDiv()
   {
     return divEClass;
@@ -625,19 +771,9 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getButton_Id()
-  {
-    return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getButton_Url()
   {
-    return (EReference)buttonEClass.getEStructuralFeatures().get(1);
+    return (EReference)buttonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -647,7 +783,7 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    */
   public EAttribute getButton_Icon()
   {
-    return (EAttribute)buttonEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)buttonEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -657,7 +793,7 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    */
   public EAttribute getButton_Class()
   {
-    return (EAttribute)buttonEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)buttonEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -667,7 +803,7 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    */
   public EReference getButton_Color()
   {
-    return (EReference)buttonEClass.getEStructuralFeatures().get(4);
+    return (EReference)buttonEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -677,7 +813,7 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    */
   public EReference getButton_BackgroundColor()
   {
-    return (EReference)buttonEClass.getEStructuralFeatures().get(5);
+    return (EReference)buttonEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1055,9 +1191,29 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLabel_Id()
+  public EAttribute getLabel_Device()
   {
     return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLabel_Get()
+  {
+    return (EAttribute)labelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLabel_Class()
+  {
+    return (EAttribute)labelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1128,6 +1284,21 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
 
     widgetEClass = createEClass(WIDGET);
 
+    switchEClass = createEClass(SWITCH);
+    createEAttribute(switchEClass, SWITCH__DEVICE);
+    createEAttribute(switchEClass, SWITCH__GET);
+    createEAttribute(switchEClass, SWITCH__GET_ON);
+    createEAttribute(switchEClass, SWITCH__GET_OFF);
+    createEAttribute(switchEClass, SWITCH__CLASS);
+    createEReference(switchEClass, SWITCH__ON_COLOR);
+    createEReference(switchEClass, SWITCH__OFF_COLOR);
+    createEReference(switchEClass, SWITCH__ON_BACK_GROUND_COLOR);
+    createEAttribute(switchEClass, SWITCH__BACKGROUND_ICON);
+    createEAttribute(switchEClass, SWITCH__ICON);
+
+    customEClass = createEClass(CUSTOM);
+    createEAttribute(customEClass, CUSTOM__CODE);
+
     divEClass = createEClass(DIV);
     createEAttribute(divEClass, DIV__CLASS);
     createEReference(divEClass, DIV__WIDGETS);
@@ -1141,7 +1312,6 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
     createEReference(calviewEClass, CALVIEW__ALL_TC);
 
     buttonEClass = createEClass(BUTTON);
-    createEAttribute(buttonEClass, BUTTON__ID);
     createEReference(buttonEClass, BUTTON__URL);
     createEAttribute(buttonEClass, BUTTON__ICON);
     createEAttribute(buttonEClass, BUTTON__CLASS);
@@ -1189,7 +1359,9 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
     createEAttribute(colorEClass, COLOR__RGB);
 
     labelEClass = createEClass(LABEL);
-    createEAttribute(labelEClass, LABEL__ID);
+    createEAttribute(labelEClass, LABEL__DEVICE);
+    createEAttribute(labelEClass, LABEL__GET);
+    createEAttribute(labelEClass, LABEL__CLASS);
   }
 
   /**
@@ -1223,6 +1395,9 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
     // Add supertypes to classes
     cssEClass.getESuperTypes().add(this.getSettingsElement());
     pageEClass.getESuperTypes().add(this.getAbstractElement());
+    switchEClass.getESuperTypes().add(this.getWidget());
+    customEClass.getESuperTypes().add(this.getWidget());
+    divEClass.getESuperTypes().add(this.getWidget());
     calviewEClass.getESuperTypes().add(this.getWidget());
     buttonEClass.getESuperTypes().add(this.getWidget());
     symbolEClass.getESuperTypes().add(this.getWidget());
@@ -1270,6 +1445,21 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
 
     initEClass(widgetEClass, Widget.class, "Widget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(switchEClass, Switch.class, "Switch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSwitch_Device(), ecorePackage.getEString(), "device", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSwitch_Get(), ecorePackage.getEString(), "get", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSwitch_GetOn(), ecorePackage.getEString(), "getOn", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSwitch_GetOff(), ecorePackage.getEString(), "getOff", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSwitch_Class(), ecorePackage.getEString(), "class", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSwitch_OnColor(), this.getColor(), null, "onColor", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSwitch_OffColor(), this.getColor(), null, "offColor", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSwitch_OnBackGroundColor(), this.getColor(), null, "onBackGroundColor", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSwitch_BackgroundIcon(), ecorePackage.getEString(), "backgroundIcon", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSwitch_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(customEClass, Custom.class, "Custom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCustom_Code(), ecorePackage.getEString(), "code", null, 0, 1, Custom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDiv_Class(), ecorePackage.getEString(), "class", null, 0, 1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDiv_Widgets(), this.getWidget(), null, "widgets", null, 0, -1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1283,7 +1473,6 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
     initEReference(getCalview_AllTC(), this.getColor(), null, "allTC", null, 0, 1, Calview.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getButton_Id(), ecorePackage.getEString(), "id", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getButton_Url(), this.getPage(), null, "url", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getButton_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getButton_Class(), ecorePackage.getEString(), "class", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1331,7 +1520,9 @@ public class TabletUIDSLPackageImpl extends EPackageImpl implements TabletUIDSLP
     initEAttribute(getColor_Rgb(), ecorePackage.getEString(), "rgb", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLabel_Id(), ecorePackage.getEString(), "id", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabel_Device(), ecorePackage.getEString(), "device", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabel_Get(), ecorePackage.getEString(), "get", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabel_Class(), ecorePackage.getEString(), "class", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

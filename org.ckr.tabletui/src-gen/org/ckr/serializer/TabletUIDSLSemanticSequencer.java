@@ -10,6 +10,7 @@ import org.ckr.tabletUIDSL.Button;
 import org.ckr.tabletUIDSL.CSS;
 import org.ckr.tabletUIDSL.Calview;
 import org.ckr.tabletUIDSL.Color;
+import org.ckr.tabletUIDSL.Custom;
 import org.ckr.tabletUIDSL.Div;
 import org.ckr.tabletUIDSL.Gridster;
 import org.ckr.tabletUIDSL.Label;
@@ -17,6 +18,7 @@ import org.ckr.tabletUIDSL.Page;
 import org.ckr.tabletUIDSL.Settings;
 import org.ckr.tabletUIDSL.SimpleChart;
 import org.ckr.tabletUIDSL.SimpleClock;
+import org.ckr.tabletUIDSL.Switch;
 import org.ckr.tabletUIDSL.Symbol;
 import org.ckr.tabletUIDSL.TabletUI;
 import org.ckr.tabletUIDSL.TabletUIDSLPackage;
@@ -53,6 +55,9 @@ public class TabletUIDSLSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case TabletUIDSLPackage.COLOR:
 				sequence_Color(context, (Color) semanticObject); 
 				return; 
+			case TabletUIDSLPackage.CUSTOM:
+				sequence_Custom(context, (Custom) semanticObject); 
+				return; 
 			case TabletUIDSLPackage.DIV:
 				sequence_Div(context, (Div) semanticObject); 
 				return; 
@@ -74,6 +79,9 @@ public class TabletUIDSLSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case TabletUIDSLPackage.SIMPLE_CLOCK:
 				sequence_SimpleClock(context, (SimpleClock) semanticObject); 
 				return; 
+			case TabletUIDSLPackage.SWITCH:
+				sequence_Switch(context, (Switch) semanticObject); 
+				return; 
 			case TabletUIDSLPackage.SYMBOL:
 				sequence_Symbol(context, (Symbol) semanticObject); 
 				return; 
@@ -86,14 +94,7 @@ public class TabletUIDSLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         id=ID 
-	 *         url=[Page|ID]? 
-	 *         icon=STRING 
-	 *         class=STRING 
-	 *         color=[Color|ID]? 
-	 *         backgroundColor=[Color|ID]?
-	 *     )
+	 *     (url=[Page|ID]? icon=STRING class=STRING color=[Color|ID]? backgroundColor=[Color|ID]?)
 	 */
 	protected void sequence_Button(EObject context, Button semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -153,6 +154,22 @@ public class TabletUIDSLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     code=STRING
+	 */
+	protected void sequence_Custom(EObject context, Custom semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, TabletUIDSLPackage.Literals.CUSTOM__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TabletUIDSLPackage.Literals.CUSTOM__CODE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCustomAccess().getCodeSTRINGTerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (class=STRING widgets+=Widget*)
 	 */
 	protected void sequence_Div(EObject context, Div semanticObject) {
@@ -179,16 +196,22 @@ public class TabletUIDSLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     id=ID
+	 *     (device=STRING get=STRING class=STRING)
 	 */
 	protected void sequence_Label(EObject context, Label semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, TabletUIDSLPackage.Literals.LABEL__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TabletUIDSLPackage.Literals.LABEL__ID));
+			if(transientValues.isValueTransient(semanticObject, TabletUIDSLPackage.Literals.LABEL__DEVICE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TabletUIDSLPackage.Literals.LABEL__DEVICE));
+			if(transientValues.isValueTransient(semanticObject, TabletUIDSLPackage.Literals.LABEL__GET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TabletUIDSLPackage.Literals.LABEL__GET));
+			if(transientValues.isValueTransient(semanticObject, TabletUIDSLPackage.Literals.LABEL__CLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TabletUIDSLPackage.Literals.LABEL__CLASS));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLabelAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getLabelAccess().getDeviceSTRINGTerminalRuleCall_2_0(), semanticObject.getDevice());
+		feeder.accept(grammarAccess.getLabelAccess().getGetSTRINGTerminalRuleCall_4_0(), semanticObject.getGet());
+		feeder.accept(grammarAccess.getLabelAccess().getClassSTRINGTerminalRuleCall_6_0(), semanticObject.getClass_());
 		feeder.finish();
 	}
 	
@@ -290,6 +313,26 @@ public class TabletUIDSLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     )
 	 */
 	protected void sequence_SimpleClock(EObject context, SimpleClock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         device=STRING 
+	 *         get=STRING? 
+	 *         getOn=STRING? 
+	 *         getOff=STRING? 
+	 *         class=STRING? 
+	 *         onColor=[Color|ID]? 
+	 *         offColor=[Color|ID]? 
+	 *         onBackGroundColor=[Color|ID]? 
+	 *         backgroundIcon=STRING? 
+	 *         icon=STRING?
+	 *     )
+	 */
+	protected void sequence_Switch(EObject context, Switch semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -3,11 +3,24 @@
  */
 package org.ckr.ui.outline
 
+import org.ckr.tabletUIDSL.AbstractElement
+import org.ckr.tabletUIDSL.TabletUI
+import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+
 /**
  * Customization of the default outline structure.
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#outline
  */
-class TabletUIDSLOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
-	
+class TabletUIDSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
+
+	// skippe den root Knoten
+	def _createNode(DocumentRootNode parentNode, TabletUI tabletUI) {
+		_createNode(parentNode, tabletUI.settings);
+		for (AbstractElement element : tabletUI.elements) {
+			_createNode(parentNode, element);
+		}
+	}
+
 }

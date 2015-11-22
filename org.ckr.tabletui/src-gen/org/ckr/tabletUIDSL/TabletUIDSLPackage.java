@@ -407,14 +407,50 @@ public interface TabletUIDSLPackage extends EPackage
   int WIDGET_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.ckr.tabletUIDSL.impl.DivImpl <em>Div</em>}' class.
+   * The meta object id for the '{@link org.ckr.tabletUIDSL.impl.SwitchImpl <em>Switch</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.ckr.tabletUIDSL.impl.DivImpl
-   * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getDiv()
+   * @see org.ckr.tabletUIDSL.impl.SwitchImpl
+   * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getSwitch()
    * @generated
    */
-  int DIV = 8;
+  int SWITCH = 8;
+
+  /**
+   * The feature id for the '<em><b>Device</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__DEVICE = WIDGET_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Get</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__GET = WIDGET_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Get On</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__GET_ON = WIDGET_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Get Off</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__GET_OFF = WIDGET_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Class</b></em>' attribute.
@@ -423,7 +459,108 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIV__CLASS = 0;
+  int SWITCH__CLASS = WIDGET_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>On Color</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__ON_COLOR = WIDGET_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Off Color</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__OFF_COLOR = WIDGET_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>On Back Ground Color</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__ON_BACK_GROUND_COLOR = WIDGET_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Background Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__BACKGROUND_ICON = WIDGET_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH__ICON = WIDGET_FEATURE_COUNT + 9;
+
+  /**
+   * The number of structural features of the '<em>Switch</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 10;
+
+  /**
+   * The meta object id for the '{@link org.ckr.tabletUIDSL.impl.CustomImpl <em>Custom</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ckr.tabletUIDSL.impl.CustomImpl
+   * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getCustom()
+   * @generated
+   */
+  int CUSTOM = 9;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM__CODE = WIDGET_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Custom</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOM_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.ckr.tabletUIDSL.impl.DivImpl <em>Div</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ckr.tabletUIDSL.impl.DivImpl
+   * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getDiv()
+   * @generated
+   */
+  int DIV = 10;
+
+  /**
+   * The feature id for the '<em><b>Class</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__CLASS = WIDGET_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
@@ -432,7 +569,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIV__WIDGETS = 1;
+  int DIV__WIDGETS = WIDGET_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Div</em>' class.
@@ -441,7 +578,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIV_FEATURE_COUNT = 2;
+  int DIV_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.ckr.tabletUIDSL.impl.CalviewImpl <em>Calview</em>}' class.
@@ -451,7 +588,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getCalview()
    * @generated
    */
-  int CALVIEW = 9;
+  int CALVIEW = 11;
 
   /**
    * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -524,16 +661,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 10;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__ID = WIDGET_FEATURE_COUNT + 0;
+  int BUTTON = 12;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' reference.
@@ -542,7 +670,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__URL = WIDGET_FEATURE_COUNT + 1;
+  int BUTTON__URL = WIDGET_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -551,7 +679,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__ICON = WIDGET_FEATURE_COUNT + 2;
+  int BUTTON__ICON = WIDGET_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Class</b></em>' attribute.
@@ -560,7 +688,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__CLASS = WIDGET_FEATURE_COUNT + 3;
+  int BUTTON__CLASS = WIDGET_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Color</b></em>' reference.
@@ -569,7 +697,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__COLOR = WIDGET_FEATURE_COUNT + 4;
+  int BUTTON__COLOR = WIDGET_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Background Color</b></em>' reference.
@@ -578,7 +706,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__BACKGROUND_COLOR = WIDGET_FEATURE_COUNT + 5;
+  int BUTTON__BACKGROUND_COLOR = WIDGET_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Button</em>' class.
@@ -587,7 +715,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 6;
+  int BUTTON_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.ckr.tabletUIDSL.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -597,7 +725,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getSymbol()
    * @generated
    */
-  int SYMBOL = 11;
+  int SYMBOL = 13;
 
   /**
    * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -724,7 +852,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getSimpleClock()
    * @generated
    */
-  int SIMPLE_CLOCK = 12;
+  int SIMPLE_CLOCK = 14;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -815,7 +943,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getSimpleChart()
    * @generated
    */
-  int SIMPLE_CHART = 13;
+  int SIMPLE_CHART = 15;
 
   /**
    * The feature id for the '<em><b>Device</b></em>' attribute.
@@ -924,7 +1052,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getColor()
    * @generated
    */
-  int COLOR = 14;
+  int COLOR = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -961,16 +1089,34 @@ public interface TabletUIDSLPackage extends EPackage
    * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getLabel()
    * @generated
    */
-  int LABEL = 15;
+  int LABEL = 17;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Device</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABEL__ID = WIDGET_FEATURE_COUNT + 0;
+  int LABEL__DEVICE = WIDGET_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Get</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__GET = WIDGET_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Class</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__CLASS = WIDGET_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Label</em>' class.
@@ -979,7 +1125,7 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+  int LABEL_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 3;
 
 
   /**
@@ -1305,6 +1451,147 @@ public interface TabletUIDSLPackage extends EPackage
   EClass getWidget();
 
   /**
+   * Returns the meta object for class '{@link org.ckr.tabletUIDSL.Switch <em>Switch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Switch</em>'.
+   * @see org.ckr.tabletUIDSL.Switch
+   * @generated
+   */
+  EClass getSwitch();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getDevice <em>Device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Device</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getDevice()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_Device();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getGet <em>Get</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Get</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getGet()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_Get();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getGetOn <em>Get On</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Get On</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getGetOn()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_GetOn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getGetOff <em>Get Off</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Get Off</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getGetOff()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_GetOff();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getClass_ <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Class</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getClass_()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_Class();
+
+  /**
+   * Returns the meta object for the reference '{@link org.ckr.tabletUIDSL.Switch#getOnColor <em>On Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>On Color</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getOnColor()
+   * @see #getSwitch()
+   * @generated
+   */
+  EReference getSwitch_OnColor();
+
+  /**
+   * Returns the meta object for the reference '{@link org.ckr.tabletUIDSL.Switch#getOffColor <em>Off Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Off Color</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getOffColor()
+   * @see #getSwitch()
+   * @generated
+   */
+  EReference getSwitch_OffColor();
+
+  /**
+   * Returns the meta object for the reference '{@link org.ckr.tabletUIDSL.Switch#getOnBackGroundColor <em>On Back Ground Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>On Back Ground Color</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getOnBackGroundColor()
+   * @see #getSwitch()
+   * @generated
+   */
+  EReference getSwitch_OnBackGroundColor();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getBackgroundIcon <em>Background Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Background Icon</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getBackgroundIcon()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_BackgroundIcon();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Switch#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.ckr.tabletUIDSL.Switch#getIcon()
+   * @see #getSwitch()
+   * @generated
+   */
+  EAttribute getSwitch_Icon();
+
+  /**
+   * Returns the meta object for class '{@link org.ckr.tabletUIDSL.Custom <em>Custom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Custom</em>'.
+   * @see org.ckr.tabletUIDSL.Custom
+   * @generated
+   */
+  EClass getCustom();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Custom#getCode <em>Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Code</em>'.
+   * @see org.ckr.tabletUIDSL.Custom#getCode()
+   * @see #getCustom()
+   * @generated
+   */
+  EAttribute getCustom_Code();
+
+  /**
    * Returns the meta object for class '{@link org.ckr.tabletUIDSL.Div <em>Div</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1421,17 +1708,6 @@ public interface TabletUIDSLPackage extends EPackage
    * @generated
    */
   EClass getButton();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Button#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.ckr.tabletUIDSL.Button#getId()
-   * @see #getButton()
-   * @generated
-   */
-  EAttribute getButton_Id();
 
   /**
    * Returns the meta object for the reference '{@link org.ckr.tabletUIDSL.Button#getUrl <em>Url</em>}'.
@@ -1891,15 +2167,37 @@ public interface TabletUIDSLPackage extends EPackage
   EClass getLabel();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Label#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Label#getDevice <em>Device</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.ckr.tabletUIDSL.Label#getId()
+   * @return the meta object for the attribute '<em>Device</em>'.
+   * @see org.ckr.tabletUIDSL.Label#getDevice()
    * @see #getLabel()
    * @generated
    */
-  EAttribute getLabel_Id();
+  EAttribute getLabel_Device();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Label#getGet <em>Get</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Get</em>'.
+   * @see org.ckr.tabletUIDSL.Label#getGet()
+   * @see #getLabel()
+   * @generated
+   */
+  EAttribute getLabel_Get();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ckr.tabletUIDSL.Label#getClass_ <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Class</em>'.
+   * @see org.ckr.tabletUIDSL.Label#getClass_()
+   * @see #getLabel()
+   * @generated
+   */
+  EAttribute getLabel_Class();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2181,6 +2479,114 @@ public interface TabletUIDSLPackage extends EPackage
     EClass WIDGET = eINSTANCE.getWidget();
 
     /**
+     * The meta object literal for the '{@link org.ckr.tabletUIDSL.impl.SwitchImpl <em>Switch</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ckr.tabletUIDSL.impl.SwitchImpl
+     * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getSwitch()
+     * @generated
+     */
+    EClass SWITCH = eINSTANCE.getSwitch();
+
+    /**
+     * The meta object literal for the '<em><b>Device</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__DEVICE = eINSTANCE.getSwitch_Device();
+
+    /**
+     * The meta object literal for the '<em><b>Get</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__GET = eINSTANCE.getSwitch_Get();
+
+    /**
+     * The meta object literal for the '<em><b>Get On</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__GET_ON = eINSTANCE.getSwitch_GetOn();
+
+    /**
+     * The meta object literal for the '<em><b>Get Off</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__GET_OFF = eINSTANCE.getSwitch_GetOff();
+
+    /**
+     * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__CLASS = eINSTANCE.getSwitch_Class();
+
+    /**
+     * The meta object literal for the '<em><b>On Color</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH__ON_COLOR = eINSTANCE.getSwitch_OnColor();
+
+    /**
+     * The meta object literal for the '<em><b>Off Color</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH__OFF_COLOR = eINSTANCE.getSwitch_OffColor();
+
+    /**
+     * The meta object literal for the '<em><b>On Back Ground Color</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH__ON_BACK_GROUND_COLOR = eINSTANCE.getSwitch_OnBackGroundColor();
+
+    /**
+     * The meta object literal for the '<em><b>Background Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__BACKGROUND_ICON = eINSTANCE.getSwitch_BackgroundIcon();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SWITCH__ICON = eINSTANCE.getSwitch_Icon();
+
+    /**
+     * The meta object literal for the '{@link org.ckr.tabletUIDSL.impl.CustomImpl <em>Custom</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ckr.tabletUIDSL.impl.CustomImpl
+     * @see org.ckr.tabletUIDSL.impl.TabletUIDSLPackageImpl#getCustom()
+     * @generated
+     */
+    EClass CUSTOM = eINSTANCE.getCustom();
+
+    /**
+     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CUSTOM__CODE = eINSTANCE.getCustom_Code();
+
+    /**
      * The meta object literal for the '{@link org.ckr.tabletUIDSL.impl.DivImpl <em>Div</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2273,14 +2679,6 @@ public interface TabletUIDSLPackage extends EPackage
      * @generated
      */
     EClass BUTTON = eINSTANCE.getButton();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BUTTON__ID = eINSTANCE.getButton_Id();
 
     /**
      * The meta object literal for the '<em><b>Url</b></em>' reference feature.
@@ -2629,12 +3027,28 @@ public interface TabletUIDSLPackage extends EPackage
     EClass LABEL = eINSTANCE.getLabel();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Device</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LABEL__ID = eINSTANCE.getLabel_Id();
+    EAttribute LABEL__DEVICE = eINSTANCE.getLabel_Device();
+
+    /**
+     * The meta object literal for the '<em><b>Get</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABEL__GET = eINSTANCE.getLabel_Get();
+
+    /**
+     * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABEL__CLASS = eINSTANCE.getLabel_Class();
 
   }
 

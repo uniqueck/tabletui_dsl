@@ -415,37 +415,269 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class WidgetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Widget");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cButtonParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLabelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSimpleClockParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSymbolParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cCalviewParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSimpleChartParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSwitchParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cButtonParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLabelParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSimpleClockParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSymbolParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cCalviewParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSimpleChartParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cCustomParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cDivParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		//Widget:
-		//	Button | Label | SimpleClock | Symbol | Calview | SimpleChart;
+		//	Switch | Button | Label | SimpleClock | Symbol | Calview | SimpleChart | Custom | Div;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Button | Label | SimpleClock | Symbol | Calview | SimpleChart
+		//Switch | Button | Label | SimpleClock | Symbol | Calview | SimpleChart | Custom | Div
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//Switch
+		public RuleCall getSwitchParserRuleCall_0() { return cSwitchParserRuleCall_0; }
+
 		//Button
-		public RuleCall getButtonParserRuleCall_0() { return cButtonParserRuleCall_0; }
+		public RuleCall getButtonParserRuleCall_1() { return cButtonParserRuleCall_1; }
 
 		//Label
-		public RuleCall getLabelParserRuleCall_1() { return cLabelParserRuleCall_1; }
+		public RuleCall getLabelParserRuleCall_2() { return cLabelParserRuleCall_2; }
 
 		//SimpleClock
-		public RuleCall getSimpleClockParserRuleCall_2() { return cSimpleClockParserRuleCall_2; }
+		public RuleCall getSimpleClockParserRuleCall_3() { return cSimpleClockParserRuleCall_3; }
 
 		//Symbol
-		public RuleCall getSymbolParserRuleCall_3() { return cSymbolParserRuleCall_3; }
+		public RuleCall getSymbolParserRuleCall_4() { return cSymbolParserRuleCall_4; }
 
 		//Calview
-		public RuleCall getCalviewParserRuleCall_4() { return cCalviewParserRuleCall_4; }
+		public RuleCall getCalviewParserRuleCall_5() { return cCalviewParserRuleCall_5; }
 
 		//SimpleChart
-		public RuleCall getSimpleChartParserRuleCall_5() { return cSimpleChartParserRuleCall_5; }
+		public RuleCall getSimpleChartParserRuleCall_6() { return cSimpleChartParserRuleCall_6; }
+
+		//Custom
+		public RuleCall getCustomParserRuleCall_7() { return cCustomParserRuleCall_7; }
+
+		//Div
+		public RuleCall getDivParserRuleCall_8() { return cDivParserRuleCall_8; }
+	}
+
+	public class SwitchElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Switch");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSwitchKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDeviceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeviceSTRINGTerminalRuleCall_2_0 = (RuleCall)cDeviceAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cGetKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cGetAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cGetSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cGetAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cGetOnKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cGetOnAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cGetOnSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cGetOnAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cGetOffKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cGetOffAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cGetOffSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cGetOffAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cClassKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cClassAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cClassSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cClassAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cOnColorKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cOnColorAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cOnColorColorCrossReference_7_1_0 = (CrossReference)cOnColorAssignment_7_1.eContents().get(0);
+		private final RuleCall cOnColorColorIDTerminalRuleCall_7_1_0_1 = (RuleCall)cOnColorColorCrossReference_7_1_0.eContents().get(1);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cOffColorKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cOffColorAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cOffColorColorCrossReference_8_1_0 = (CrossReference)cOffColorAssignment_8_1.eContents().get(0);
+		private final RuleCall cOffColorColorIDTerminalRuleCall_8_1_0_1 = (RuleCall)cOffColorColorCrossReference_8_1_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cBackgroundOnColorKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cOnBackGroundColorAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cOnBackGroundColorColorCrossReference_9_1_0 = (CrossReference)cOnBackGroundColorAssignment_9_1.eContents().get(0);
+		private final RuleCall cOnBackGroundColorColorIDTerminalRuleCall_9_1_0_1 = (RuleCall)cOnBackGroundColorColorCrossReference_9_1_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cBackgroundIconKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cBackgroundIconAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cBackgroundIconSTRINGTerminalRuleCall_10_1_0 = (RuleCall)cBackgroundIconAssignment_10_1.eContents().get(0);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cIconKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cIconAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cIconSTRINGTerminalRuleCall_11_1_0 = (RuleCall)cIconAssignment_11_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		
+		//Switch:
+		//	"switch" "{" device=STRING ("get" get=STRING)? ("getOn" getOn=STRING)? ("getOff" getOff=STRING)? ("class"
+		//	class=STRING)? ("onColor" onColor=[Color])? ("offColor" offColor=[Color])? ("background-on-color"
+		//	onBackGroundColor=[Color])? ("background-icon" backgroundIcon=STRING)? ("icon" icon=STRING)? "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"switch" "{" device=STRING ("get" get=STRING)? ("getOn" getOn=STRING)? ("getOff" getOff=STRING)? ("class" class=STRING)?
+		//("onColor" onColor=[Color])? ("offColor" offColor=[Color])? ("background-on-color" onBackGroundColor=[Color])?
+		//("background-icon" backgroundIcon=STRING)? ("icon" icon=STRING)? "}"
+		public Group getGroup() { return cGroup; }
+
+		//"switch"
+		public Keyword getSwitchKeyword_0() { return cSwitchKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//device=STRING
+		public Assignment getDeviceAssignment_2() { return cDeviceAssignment_2; }
+
+		//STRING
+		public RuleCall getDeviceSTRINGTerminalRuleCall_2_0() { return cDeviceSTRINGTerminalRuleCall_2_0; }
+
+		//("get" get=STRING)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"get"
+		public Keyword getGetKeyword_3_0() { return cGetKeyword_3_0; }
+
+		//get=STRING
+		public Assignment getGetAssignment_3_1() { return cGetAssignment_3_1; }
+
+		//STRING
+		public RuleCall getGetSTRINGTerminalRuleCall_3_1_0() { return cGetSTRINGTerminalRuleCall_3_1_0; }
+
+		//("getOn" getOn=STRING)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"getOn"
+		public Keyword getGetOnKeyword_4_0() { return cGetOnKeyword_4_0; }
+
+		//getOn=STRING
+		public Assignment getGetOnAssignment_4_1() { return cGetOnAssignment_4_1; }
+
+		//STRING
+		public RuleCall getGetOnSTRINGTerminalRuleCall_4_1_0() { return cGetOnSTRINGTerminalRuleCall_4_1_0; }
+
+		//("getOff" getOff=STRING)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"getOff"
+		public Keyword getGetOffKeyword_5_0() { return cGetOffKeyword_5_0; }
+
+		//getOff=STRING
+		public Assignment getGetOffAssignment_5_1() { return cGetOffAssignment_5_1; }
+
+		//STRING
+		public RuleCall getGetOffSTRINGTerminalRuleCall_5_1_0() { return cGetOffSTRINGTerminalRuleCall_5_1_0; }
+
+		//("class" class=STRING)?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"class"
+		public Keyword getClassKeyword_6_0() { return cClassKeyword_6_0; }
+
+		//class=STRING
+		public Assignment getClassAssignment_6_1() { return cClassAssignment_6_1; }
+
+		//STRING
+		public RuleCall getClassSTRINGTerminalRuleCall_6_1_0() { return cClassSTRINGTerminalRuleCall_6_1_0; }
+
+		//("onColor" onColor=[Color])?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"onColor"
+		public Keyword getOnColorKeyword_7_0() { return cOnColorKeyword_7_0; }
+
+		//onColor=[Color]
+		public Assignment getOnColorAssignment_7_1() { return cOnColorAssignment_7_1; }
+
+		//[Color]
+		public CrossReference getOnColorColorCrossReference_7_1_0() { return cOnColorColorCrossReference_7_1_0; }
+
+		//ID
+		public RuleCall getOnColorColorIDTerminalRuleCall_7_1_0_1() { return cOnColorColorIDTerminalRuleCall_7_1_0_1; }
+
+		//("offColor" offColor=[Color])?
+		public Group getGroup_8() { return cGroup_8; }
+
+		//"offColor"
+		public Keyword getOffColorKeyword_8_0() { return cOffColorKeyword_8_0; }
+
+		//offColor=[Color]
+		public Assignment getOffColorAssignment_8_1() { return cOffColorAssignment_8_1; }
+
+		//[Color]
+		public CrossReference getOffColorColorCrossReference_8_1_0() { return cOffColorColorCrossReference_8_1_0; }
+
+		//ID
+		public RuleCall getOffColorColorIDTerminalRuleCall_8_1_0_1() { return cOffColorColorIDTerminalRuleCall_8_1_0_1; }
+
+		//("background-on-color" onBackGroundColor=[Color])?
+		public Group getGroup_9() { return cGroup_9; }
+
+		//"background-on-color"
+		public Keyword getBackgroundOnColorKeyword_9_0() { return cBackgroundOnColorKeyword_9_0; }
+
+		//onBackGroundColor=[Color]
+		public Assignment getOnBackGroundColorAssignment_9_1() { return cOnBackGroundColorAssignment_9_1; }
+
+		//[Color]
+		public CrossReference getOnBackGroundColorColorCrossReference_9_1_0() { return cOnBackGroundColorColorCrossReference_9_1_0; }
+
+		//ID
+		public RuleCall getOnBackGroundColorColorIDTerminalRuleCall_9_1_0_1() { return cOnBackGroundColorColorIDTerminalRuleCall_9_1_0_1; }
+
+		//("background-icon" backgroundIcon=STRING)?
+		public Group getGroup_10() { return cGroup_10; }
+
+		//"background-icon"
+		public Keyword getBackgroundIconKeyword_10_0() { return cBackgroundIconKeyword_10_0; }
+
+		//backgroundIcon=STRING
+		public Assignment getBackgroundIconAssignment_10_1() { return cBackgroundIconAssignment_10_1; }
+
+		//STRING
+		public RuleCall getBackgroundIconSTRINGTerminalRuleCall_10_1_0() { return cBackgroundIconSTRINGTerminalRuleCall_10_1_0; }
+
+		//("icon" icon=STRING)?
+		public Group getGroup_11() { return cGroup_11; }
+
+		//"icon"
+		public Keyword getIconKeyword_11_0() { return cIconKeyword_11_0; }
+
+		//icon=STRING
+		public Assignment getIconAssignment_11_1() { return cIconAssignment_11_1; }
+
+		//STRING
+		public RuleCall getIconSTRINGTerminalRuleCall_11_1_0() { return cIconSTRINGTerminalRuleCall_11_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+	}
+
+	public class CustomElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Custom");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCodeSTRINGTerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Custom:
+		//	"{" code=STRING "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"{" code=STRING "}"
+		public Group getGroup() { return cGroup; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+
+		//code=STRING
+		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
+
+		//STRING
+		public RuleCall getCodeSTRINGTerminalRuleCall_1_0() { return cCodeSTRINGTerminalRuleCall_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
 
 	public class DivElements extends AbstractParserRuleElementFinder {
@@ -607,38 +839,36 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cButtonKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cUrlKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cUrlAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cUrlPageCrossReference_3_1_0 = (CrossReference)cUrlAssignment_3_1.eContents().get(0);
-		private final RuleCall cUrlPageIDTerminalRuleCall_3_1_0_1 = (RuleCall)cUrlPageCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cIconKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cIconAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cIconSTRINGTerminalRuleCall_5_0 = (RuleCall)cIconAssignment_5.eContents().get(0);
-		private final Keyword cClassKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cClassAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cClassSTRINGTerminalRuleCall_7_0 = (RuleCall)cClassAssignment_7.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cUrlKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cUrlAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cUrlPageCrossReference_2_1_0 = (CrossReference)cUrlAssignment_2_1.eContents().get(0);
+		private final RuleCall cUrlPageIDTerminalRuleCall_2_1_0_1 = (RuleCall)cUrlPageCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cIconKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cIconAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cIconSTRINGTerminalRuleCall_4_0 = (RuleCall)cIconAssignment_4.eContents().get(0);
+		private final Keyword cClassKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cClassAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cClassSTRINGTerminalRuleCall_6_0 = (RuleCall)cClassAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cColorKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cColorAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cColorColorCrossReference_7_1_0 = (CrossReference)cColorAssignment_7_1.eContents().get(0);
+		private final RuleCall cColorColorIDTerminalRuleCall_7_1_0_1 = (RuleCall)cColorColorCrossReference_7_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cColorKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cColorAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cColorColorCrossReference_8_1_0 = (CrossReference)cColorAssignment_8_1.eContents().get(0);
-		private final RuleCall cColorColorIDTerminalRuleCall_8_1_0_1 = (RuleCall)cColorColorCrossReference_8_1_0.eContents().get(1);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cBackgroundColorKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cBackgroundColorAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cBackgroundColorColorCrossReference_9_1_0 = (CrossReference)cBackgroundColorAssignment_9_1.eContents().get(0);
-		private final RuleCall cBackgroundColorColorIDTerminalRuleCall_9_1_0_1 = (RuleCall)cBackgroundColorColorCrossReference_9_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cBackgroundColorKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cBackgroundColorAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cBackgroundColorColorCrossReference_8_1_0 = (CrossReference)cBackgroundColorAssignment_8_1.eContents().get(0);
+		private final RuleCall cBackgroundColorColorIDTerminalRuleCall_8_1_0_1 = (RuleCall)cBackgroundColorColorCrossReference_8_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Button:
-		//	"button" "{" id=ID ("url" url=[Page])? "icon" icon=STRING "class" class=STRING ("color" color=[Color])?
-		//	("background-color" backgroundColor=[Color])? "}";
+		//	"button" "{" ("url" url=[Page])? "icon" icon=STRING "class" class=STRING ("color" color=[Color])? ("background-color"
+		//	backgroundColor=[Color])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"button" "{" id=ID ("url" url=[Page])? "icon" icon=STRING "class" class=STRING ("color" color=[Color])?
-		//("background-color" backgroundColor=[Color])? "}"
+		//"button" "{" ("url" url=[Page])? "icon" icon=STRING "class" class=STRING ("color" color=[Color])? ("background-color"
+		//backgroundColor=[Color])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"button"
@@ -647,77 +877,71 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//id=ID
-		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
-
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
-
 		//("url" url=[Page])?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"url"
-		public Keyword getUrlKeyword_3_0() { return cUrlKeyword_3_0; }
+		public Keyword getUrlKeyword_2_0() { return cUrlKeyword_2_0; }
 
 		//url=[Page]
-		public Assignment getUrlAssignment_3_1() { return cUrlAssignment_3_1; }
+		public Assignment getUrlAssignment_2_1() { return cUrlAssignment_2_1; }
 
 		//[Page]
-		public CrossReference getUrlPageCrossReference_3_1_0() { return cUrlPageCrossReference_3_1_0; }
+		public CrossReference getUrlPageCrossReference_2_1_0() { return cUrlPageCrossReference_2_1_0; }
 
 		//ID
-		public RuleCall getUrlPageIDTerminalRuleCall_3_1_0_1() { return cUrlPageIDTerminalRuleCall_3_1_0_1; }
+		public RuleCall getUrlPageIDTerminalRuleCall_2_1_0_1() { return cUrlPageIDTerminalRuleCall_2_1_0_1; }
 
 		//"icon"
-		public Keyword getIconKeyword_4() { return cIconKeyword_4; }
+		public Keyword getIconKeyword_3() { return cIconKeyword_3; }
 
 		//icon=STRING
-		public Assignment getIconAssignment_5() { return cIconAssignment_5; }
+		public Assignment getIconAssignment_4() { return cIconAssignment_4; }
 
 		//STRING
-		public RuleCall getIconSTRINGTerminalRuleCall_5_0() { return cIconSTRINGTerminalRuleCall_5_0; }
+		public RuleCall getIconSTRINGTerminalRuleCall_4_0() { return cIconSTRINGTerminalRuleCall_4_0; }
 
 		//"class"
-		public Keyword getClassKeyword_6() { return cClassKeyword_6; }
+		public Keyword getClassKeyword_5() { return cClassKeyword_5; }
 
 		//class=STRING
-		public Assignment getClassAssignment_7() { return cClassAssignment_7; }
+		public Assignment getClassAssignment_6() { return cClassAssignment_6; }
 
 		//STRING
-		public RuleCall getClassSTRINGTerminalRuleCall_7_0() { return cClassSTRINGTerminalRuleCall_7_0; }
+		public RuleCall getClassSTRINGTerminalRuleCall_6_0() { return cClassSTRINGTerminalRuleCall_6_0; }
 
 		//("color" color=[Color])?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"color"
-		public Keyword getColorKeyword_8_0() { return cColorKeyword_8_0; }
+		public Keyword getColorKeyword_7_0() { return cColorKeyword_7_0; }
 
 		//color=[Color]
-		public Assignment getColorAssignment_8_1() { return cColorAssignment_8_1; }
+		public Assignment getColorAssignment_7_1() { return cColorAssignment_7_1; }
 
 		//[Color]
-		public CrossReference getColorColorCrossReference_8_1_0() { return cColorColorCrossReference_8_1_0; }
+		public CrossReference getColorColorCrossReference_7_1_0() { return cColorColorCrossReference_7_1_0; }
 
 		//ID
-		public RuleCall getColorColorIDTerminalRuleCall_8_1_0_1() { return cColorColorIDTerminalRuleCall_8_1_0_1; }
+		public RuleCall getColorColorIDTerminalRuleCall_7_1_0_1() { return cColorColorIDTerminalRuleCall_7_1_0_1; }
 
 		//("background-color" backgroundColor=[Color])?
-		public Group getGroup_9() { return cGroup_9; }
+		public Group getGroup_8() { return cGroup_8; }
 
 		//"background-color"
-		public Keyword getBackgroundColorKeyword_9_0() { return cBackgroundColorKeyword_9_0; }
+		public Keyword getBackgroundColorKeyword_8_0() { return cBackgroundColorKeyword_8_0; }
 
 		//backgroundColor=[Color]
-		public Assignment getBackgroundColorAssignment_9_1() { return cBackgroundColorAssignment_9_1; }
+		public Assignment getBackgroundColorAssignment_8_1() { return cBackgroundColorAssignment_8_1; }
 
 		//[Color]
-		public CrossReference getBackgroundColorColorCrossReference_9_1_0() { return cBackgroundColorColorCrossReference_9_1_0; }
+		public CrossReference getBackgroundColorColorCrossReference_8_1_0() { return cBackgroundColorColorCrossReference_8_1_0; }
 
 		//ID
-		public RuleCall getBackgroundColorColorIDTerminalRuleCall_9_1_0_1() { return cBackgroundColorColorIDTerminalRuleCall_9_1_0_1; }
+		public RuleCall getBackgroundColorColorIDTerminalRuleCall_8_1_0_1() { return cBackgroundColorColorIDTerminalRuleCall_8_1_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 
 	public class SymbolElements extends AbstractParserRuleElementFinder {
@@ -1297,28 +1521,56 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Label");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLabelKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDeviceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeviceSTRINGTerminalRuleCall_2_0 = (RuleCall)cDeviceAssignment_2.eContents().get(0);
+		private final Keyword cGetKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cGetAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cGetSTRINGTerminalRuleCall_4_0 = (RuleCall)cGetAssignment_4.eContents().get(0);
+		private final Keyword cClassKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cClassAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cClassSTRINGTerminalRuleCall_6_0 = (RuleCall)cClassAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Label:
-		//	"label {" id=ID "}";
+		//	"label" "{" device=STRING "get" get=STRING "class" class=STRING "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"label {" id=ID "}"
+		//"label" "{" device=STRING "get" get=STRING "class" class=STRING "}"
 		public Group getGroup() { return cGroup; }
 
-		//"label {"
+		//"label"
 		public Keyword getLabelKeyword_0() { return cLabelKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		//device=STRING
+		public Assignment getDeviceAssignment_2() { return cDeviceAssignment_2; }
+
+		//STRING
+		public RuleCall getDeviceSTRINGTerminalRuleCall_2_0() { return cDeviceSTRINGTerminalRuleCall_2_0; }
+
+		//"get"
+		public Keyword getGetKeyword_3() { return cGetKeyword_3; }
+
+		//get=STRING
+		public Assignment getGetAssignment_4() { return cGetAssignment_4; }
+
+		//STRING
+		public RuleCall getGetSTRINGTerminalRuleCall_4_0() { return cGetSTRINGTerminalRuleCall_4_0; }
+
+		//"class"
+		public Keyword getClassKeyword_5() { return cClassKeyword_5; }
+
+		//class=STRING
+		public Assignment getClassAssignment_6() { return cClassAssignment_6; }
+
+		//STRING
+		public RuleCall getClassSTRINGTerminalRuleCall_6_0() { return cClassSTRINGTerminalRuleCall_6_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	
 	
@@ -1331,6 +1583,8 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final PageElements pPage;
 	private final GridsterElements pGridster;
 	private final WidgetElements pWidget;
+	private final SwitchElements pSwitch;
+	private final CustomElements pCustom;
 	private final DivElements pDiv;
 	private final CalviewElements pCalview;
 	private final ButtonElements pButton;
@@ -1358,6 +1612,8 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPage = new PageElements();
 		this.pGridster = new GridsterElements();
 		this.pWidget = new WidgetElements();
+		this.pSwitch = new SwitchElements();
+		this.pCustom = new CustomElements();
 		this.pDiv = new DivElements();
 		this.pCalview = new CalviewElements();
 		this.pButton = new ButtonElements();
@@ -1479,13 +1735,35 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Widget:
-	//	Button | Label | SimpleClock | Symbol | Calview | SimpleChart;
+	//	Switch | Button | Label | SimpleClock | Symbol | Calview | SimpleChart | Custom | Div;
 	public WidgetElements getWidgetAccess() {
 		return pWidget;
 	}
 	
 	public ParserRule getWidgetRule() {
 		return getWidgetAccess().getRule();
+	}
+
+	//Switch:
+	//	"switch" "{" device=STRING ("get" get=STRING)? ("getOn" getOn=STRING)? ("getOff" getOff=STRING)? ("class"
+	//	class=STRING)? ("onColor" onColor=[Color])? ("offColor" offColor=[Color])? ("background-on-color"
+	//	onBackGroundColor=[Color])? ("background-icon" backgroundIcon=STRING)? ("icon" icon=STRING)? "}";
+	public SwitchElements getSwitchAccess() {
+		return pSwitch;
+	}
+	
+	public ParserRule getSwitchRule() {
+		return getSwitchAccess().getRule();
+	}
+
+	//Custom:
+	//	"{" code=STRING "}";
+	public CustomElements getCustomAccess() {
+		return pCustom;
+	}
+	
+	public ParserRule getCustomRule() {
+		return getCustomAccess().getRule();
 	}
 
 	//Div:
@@ -1510,8 +1788,8 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Button:
-	//	"button" "{" id=ID ("url" url=[Page])? "icon" icon=STRING "class" class=STRING ("color" color=[Color])?
-	//	("background-color" backgroundColor=[Color])? "}";
+	//	"button" "{" ("url" url=[Page])? "icon" icon=STRING "class" class=STRING ("color" color=[Color])? ("background-color"
+	//	backgroundColor=[Color])? "}";
 	public ButtonElements getButtonAccess() {
 		return pButton;
 	}
@@ -1568,7 +1846,7 @@ public class TabletUIDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Label:
-	//	"label {" id=ID "}";
+	//	"label" "{" device=STRING "get" get=STRING "class" class=STRING "}";
 	public LabelElements getLabelAccess() {
 		return pLabel;
 	}

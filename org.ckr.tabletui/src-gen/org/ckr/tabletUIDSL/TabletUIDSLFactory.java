@@ -95,6 +95,24 @@ public interface TabletUIDSLFactory extends EFactory
   Widget createWidget();
 
   /**
+   * Returns a new object of class '<em>Switch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Switch</em>'.
+   * @generated
+   */
+  Switch createSwitch();
+
+  /**
+   * Returns a new object of class '<em>Custom</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Custom</em>'.
+   * @generated
+   */
+  Custom createCustom();
+
+  /**
    * Returns a new object of class '<em>Div</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

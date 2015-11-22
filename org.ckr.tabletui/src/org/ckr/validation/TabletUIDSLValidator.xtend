@@ -73,8 +73,8 @@ class TabletUIDSLValidator extends AbstractTabletUIDSLValidator {
 	
 	@Check
 	def checkButtonTargetURL(Button button) {
-		if ((((button.eContainer as Gridster).eContainer as Page).eContainer as TabletUI).elements.filter(Page).filter[name == button.id].length == 0) {
-			warning("Zieladresse "+ button.id + ".html existiert nicht.",button, TabletUIDSLPackage.Literals.BUTTON__ID, INVALID_BUTTON_URL);	
+		if ((((button.eContainer as Gridster).eContainer as Page).eContainer as TabletUI).elements.filter(Page).filter[name == button.url.name].length == 0) {
+			warning("Zieladresse "+ button.url + ".html existiert nicht.",button, TabletUIDSLPackage.Literals.BUTTON__URL, INVALID_BUTTON_URL);	
 		}		
 	}
 	

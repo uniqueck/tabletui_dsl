@@ -72,6 +72,8 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
       case TabletUIDSLPackage.PAGE: return createPage();
       case TabletUIDSLPackage.GRIDSTER: return createGridster();
       case TabletUIDSLPackage.WIDGET: return createWidget();
+      case TabletUIDSLPackage.SWITCH: return createSwitch();
+      case TabletUIDSLPackage.CUSTOM: return createCustom();
       case TabletUIDSLPackage.DIV: return createDiv();
       case TabletUIDSLPackage.CALVIEW: return createCalview();
       case TabletUIDSLPackage.BUTTON: return createButton();
@@ -171,6 +173,28 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
   {
     WidgetImpl widget = new WidgetImpl();
     return widget;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Switch createSwitch()
+  {
+    SwitchImpl switch_ = new SwitchImpl();
+    return switch_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Custom createCustom()
+  {
+    CustomImpl custom = new CustomImpl();
+    return custom;
   }
 
   /**

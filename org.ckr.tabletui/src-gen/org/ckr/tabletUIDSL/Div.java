@@ -4,8 +4,6 @@ package org.ckr.tabletUIDSL;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Div</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Div extends EObject
+public interface Div extends Widget
 {
   /**
    * Returns the value of the '<em><b>Class</b></em>' attribute.

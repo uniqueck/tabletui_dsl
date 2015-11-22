@@ -115,6 +115,16 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
         return createWidgetAdapter();
       }
       @Override
+      public Adapter caseSwitch(Switch object)
+      {
+        return createSwitchAdapter();
+      }
+      @Override
+      public Adapter caseCustom(Custom object)
+      {
+        return createCustomAdapter();
+      }
+      @Override
       public Adapter caseDiv(Div object)
       {
         return createDivAdapter();
@@ -292,6 +302,36 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWidgetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Switch <em>Switch</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Switch
+   * @generated
+   */
+  public Adapter createSwitchAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Custom <em>Custom</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Custom
+   * @generated
+   */
+  public Adapter createCustomAdapter()
   {
     return null;
   }

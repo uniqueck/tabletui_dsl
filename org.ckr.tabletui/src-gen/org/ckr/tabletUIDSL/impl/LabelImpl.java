@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.ckr.tabletUIDSL.impl.LabelImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.LabelImpl#getDevice <em>Device</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.LabelImpl#getGet <em>Get</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.LabelImpl#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -27,24 +29,64 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class LabelImpl extends WidgetImpl implements Label
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getDevice() <em>Device</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getDevice()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String DEVICE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getDevice() <em>Device</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getDevice()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String device = DEVICE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getGet() <em>Get</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGet()
+   * @generated
+   * @ordered
+   */
+  protected static final String GET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getGet() <em>Get</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGet()
+   * @generated
+   * @ordered
+   */
+  protected String get = GET_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClass_()
+   * @generated
+   * @ordered
+   */
+  protected static final String CLASS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClass_()
+   * @generated
+   * @ordered
+   */
+  protected String class_ = CLASS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,9 +114,9 @@ public class LabelImpl extends WidgetImpl implements Label
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getDevice()
   {
-    return id;
+    return device;
   }
 
   /**
@@ -82,12 +124,58 @@ public class LabelImpl extends WidgetImpl implements Label
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setDevice(String newDevice)
   {
-    String oldId = id;
-    id = newId;
+    String oldDevice = device;
+    device = newDevice;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.LABEL__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.LABEL__DEVICE, oldDevice, device));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getGet()
+  {
+    return get;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGet(String newGet)
+  {
+    String oldGet = get;
+    get = newGet;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.LABEL__GET, oldGet, get));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getClass_()
+  {
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setClass(String newClass)
+  {
+    String oldClass = class_;
+    class_ = newClass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.LABEL__CLASS, oldClass, class_));
   }
 
   /**
@@ -100,8 +188,12 @@ public class LabelImpl extends WidgetImpl implements Label
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.LABEL__ID:
-        return getId();
+      case TabletUIDSLPackage.LABEL__DEVICE:
+        return getDevice();
+      case TabletUIDSLPackage.LABEL__GET:
+        return getGet();
+      case TabletUIDSLPackage.LABEL__CLASS:
+        return getClass_();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,8 +208,14 @@ public class LabelImpl extends WidgetImpl implements Label
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.LABEL__ID:
-        setId((String)newValue);
+      case TabletUIDSLPackage.LABEL__DEVICE:
+        setDevice((String)newValue);
+        return;
+      case TabletUIDSLPackage.LABEL__GET:
+        setGet((String)newValue);
+        return;
+      case TabletUIDSLPackage.LABEL__CLASS:
+        setClass((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,8 +231,14 @@ public class LabelImpl extends WidgetImpl implements Label
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.LABEL__ID:
-        setId(ID_EDEFAULT);
+      case TabletUIDSLPackage.LABEL__DEVICE:
+        setDevice(DEVICE_EDEFAULT);
+        return;
+      case TabletUIDSLPackage.LABEL__GET:
+        setGet(GET_EDEFAULT);
+        return;
+      case TabletUIDSLPackage.LABEL__CLASS:
+        setClass(CLASS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -150,8 +254,12 @@ public class LabelImpl extends WidgetImpl implements Label
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.LABEL__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case TabletUIDSLPackage.LABEL__DEVICE:
+        return DEVICE_EDEFAULT == null ? device != null : !DEVICE_EDEFAULT.equals(device);
+      case TabletUIDSLPackage.LABEL__GET:
+        return GET_EDEFAULT == null ? get != null : !GET_EDEFAULT.equals(get);
+      case TabletUIDSLPackage.LABEL__CLASS:
+        return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
     }
     return super.eIsSet(featureID);
   }
@@ -167,8 +275,12 @@ public class LabelImpl extends WidgetImpl implements Label
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (device: ");
+    result.append(device);
+    result.append(", get: ");
+    result.append(get);
+    result.append(", class: ");
+    result.append(class_);
     result.append(')');
     return result.toString();
   }

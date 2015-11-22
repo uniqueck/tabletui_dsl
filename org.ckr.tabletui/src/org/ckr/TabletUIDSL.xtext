@@ -55,7 +55,29 @@ Gridster:
 ;
 
 Widget:
-	(Button | Label | SimpleClock | Symbol | Calview | SimpleChart)
+	(Switch | Button | Label | SimpleClock | Symbol | Calview | SimpleChart | Custom | Div)
+;
+
+Switch:
+	'switch'
+	'{'
+		device = STRING
+		('get' get = STRING)?
+		('getOn' getOn = STRING)?
+		('getOff' getOff = STRING)?
+		('class' class = STRING)?
+		('onColor' onColor = [Color])?
+		('offColor' offColor = [Color])?
+		('background-on-color' onBackGroundColor = [Color])?	
+		('background-icon' backgroundIcon = STRING)?
+		('icon' icon = STRING)?	
+	'}'
+;
+
+Custom:
+	'{'
+		code = STRING
+	'}'
 ;
 
 Div:
@@ -152,8 +174,10 @@ Color:
 ;
 
 Label:
-	'label {'
-		id = ID
-	'}'
-	
+	'label'
+	 '{'
+		device = STRING
+		'get' get = STRING
+		'class' class = STRING
+	 '}'
 ;

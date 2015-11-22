@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.ckr.tabletUIDSL.impl.ButtonImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.ButtonImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.ButtonImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.ButtonImpl#getClass_ <em>Class</em>}</li>
@@ -34,26 +33,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ButtonImpl extends WidgetImpl implements Button
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getUrl() <em>Url</em>}' reference.
    * <!-- begin-user-doc -->
@@ -143,29 +122,6 @@ public class ButtonImpl extends WidgetImpl implements Button
   protected EClass eStaticClass()
   {
     return TabletUIDSLPackage.Literals.BUTTON;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.BUTTON__ID, oldId, id));
   }
 
   /**
@@ -353,8 +309,6 @@ public class ButtonImpl extends WidgetImpl implements Button
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.BUTTON__ID:
-        return getId();
       case TabletUIDSLPackage.BUTTON__URL:
         if (resolve) return getUrl();
         return basicGetUrl();
@@ -382,9 +336,6 @@ public class ButtonImpl extends WidgetImpl implements Button
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.BUTTON__ID:
-        setId((String)newValue);
-        return;
       case TabletUIDSLPackage.BUTTON__URL:
         setUrl((Page)newValue);
         return;
@@ -414,9 +365,6 @@ public class ButtonImpl extends WidgetImpl implements Button
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.BUTTON__ID:
-        setId(ID_EDEFAULT);
-        return;
       case TabletUIDSLPackage.BUTTON__URL:
         setUrl((Page)null);
         return;
@@ -446,8 +394,6 @@ public class ButtonImpl extends WidgetImpl implements Button
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.BUTTON__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case TabletUIDSLPackage.BUTTON__URL:
         return url != null;
       case TabletUIDSLPackage.BUTTON__ICON:
@@ -473,9 +419,7 @@ public class ButtonImpl extends WidgetImpl implements Button
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", icon: ");
+    result.append(" (icon: ");
     result.append(icon);
     result.append(", class: ");
     result.append(class_);
