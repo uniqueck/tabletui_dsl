@@ -11,7 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -21,18 +20,18 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class TabletUIDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected TabletUIDSLGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Symbol_GetOffKeyword_7_0_q;
-	protected AbstractElementAlias match_Symbol___IconsKeyword_13_0_LeftSquareBracketKeyword_13_1_RightSquareBracketKeyword_13_3__q;
-	protected AbstractElementAlias match_Symbol___OnBackgroundColorsKeyword_15_0_LeftSquareBracketKeyword_15_1_RightSquareBracketKeyword_15_3__q;
-	protected AbstractElementAlias match_Symbol___OnColorsKeyword_14_0_LeftSquareBracketKeyword_14_1_RightSquareBracketKeyword_14_3__q;
+	protected AbstractElementAlias match_Symbol_GetOffKeyword_8_0_q;
+	protected AbstractElementAlias match_Symbol_IconsKeyword_12_0_q;
+	protected AbstractElementAlias match_Symbol_OnBackgroundColorsKeyword_14_0_q;
+	protected AbstractElementAlias match_Symbol_OnColorsKeyword_13_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (TabletUIDSLGrammarAccess) access;
-		match_Symbol_GetOffKeyword_7_0_q = new TokenAlias(false, true, grammarAccess.getSymbolAccess().getGetOffKeyword_7_0());
-		match_Symbol___IconsKeyword_13_0_LeftSquareBracketKeyword_13_1_RightSquareBracketKeyword_13_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSymbolAccess().getIconsKeyword_13_0()), new TokenAlias(false, false, grammarAccess.getSymbolAccess().getLeftSquareBracketKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getSymbolAccess().getRightSquareBracketKeyword_13_3()));
-		match_Symbol___OnBackgroundColorsKeyword_15_0_LeftSquareBracketKeyword_15_1_RightSquareBracketKeyword_15_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSymbolAccess().getOnBackgroundColorsKeyword_15_0()), new TokenAlias(false, false, grammarAccess.getSymbolAccess().getLeftSquareBracketKeyword_15_1()), new TokenAlias(false, false, grammarAccess.getSymbolAccess().getRightSquareBracketKeyword_15_3()));
-		match_Symbol___OnColorsKeyword_14_0_LeftSquareBracketKeyword_14_1_RightSquareBracketKeyword_14_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSymbolAccess().getOnColorsKeyword_14_0()), new TokenAlias(false, false, grammarAccess.getSymbolAccess().getLeftSquareBracketKeyword_14_1()), new TokenAlias(false, false, grammarAccess.getSymbolAccess().getRightSquareBracketKeyword_14_3()));
+		match_Symbol_GetOffKeyword_8_0_q = new TokenAlias(false, true, grammarAccess.getSymbolAccess().getGetOffKeyword_8_0());
+		match_Symbol_IconsKeyword_12_0_q = new TokenAlias(false, true, grammarAccess.getSymbolAccess().getIconsKeyword_12_0());
+		match_Symbol_OnBackgroundColorsKeyword_14_0_q = new TokenAlias(false, true, grammarAccess.getSymbolAccess().getOnBackgroundColorsKeyword_14_0());
+		match_Symbol_OnColorsKeyword_13_0_q = new TokenAlias(false, true, grammarAccess.getSymbolAccess().getOnColorsKeyword_13_0());
 	}
 	
 	@Override
@@ -47,14 +46,14 @@ public class TabletUIDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Symbol_GetOffKeyword_7_0_q.equals(syntax))
-				emit_Symbol_GetOffKeyword_7_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Symbol___IconsKeyword_13_0_LeftSquareBracketKeyword_13_1_RightSquareBracketKeyword_13_3__q.equals(syntax))
-				emit_Symbol___IconsKeyword_13_0_LeftSquareBracketKeyword_13_1_RightSquareBracketKeyword_13_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Symbol___OnBackgroundColorsKeyword_15_0_LeftSquareBracketKeyword_15_1_RightSquareBracketKeyword_15_3__q.equals(syntax))
-				emit_Symbol___OnBackgroundColorsKeyword_15_0_LeftSquareBracketKeyword_15_1_RightSquareBracketKeyword_15_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Symbol___OnColorsKeyword_14_0_LeftSquareBracketKeyword_14_1_RightSquareBracketKeyword_14_3__q.equals(syntax))
-				emit_Symbol___OnColorsKeyword_14_0_LeftSquareBracketKeyword_14_1_RightSquareBracketKeyword_14_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Symbol_GetOffKeyword_8_0_q.equals(syntax))
+				emit_Symbol_GetOffKeyword_8_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Symbol_IconsKeyword_12_0_q.equals(syntax))
+				emit_Symbol_IconsKeyword_12_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Symbol_OnBackgroundColorsKeyword_14_0_q.equals(syntax))
+				emit_Symbol_OnBackgroundColorsKeyword_14_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Symbol_OnColorsKeyword_13_0_q.equals(syntax))
+				emit_Symbol_OnColorsKeyword_13_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -65,107 +64,104 @@ public class TabletUIDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     get=STRING 'getOn' (ambiguity) 'background-icon' bgicon=STRING
-	 *     get=STRING 'getOn' (ambiguity) 'background-on-color' onBackGroundColor=[Color|ID]
 	 *     get=STRING 'getOn' (ambiguity) 'class' class=STRING
-	 *     get=STRING 'getOn' (ambiguity) 'icons' '[' icons+=STRING
+	 *     get=STRING 'getOn' (ambiguity) 'icons' icons+=STRING
+	 *     get=STRING 'getOn' (ambiguity) 'icons'? 'onColors' onColors+=[Color|ID]
+	 *     get=STRING 'getOn' (ambiguity) 'icons'? 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     get=STRING 'getOn' (ambiguity) 'icons'? 'onColors'? 'onBackgroundColors'? '}' (rule end)
 	 *     get=STRING 'getOn' (ambiguity) 'off-color' offColor=[Color|ID]
-	 *     get=STRING 'getOn' (ambiguity) 'on-color' onColor=[Color|ID]
-	 *     get=STRING 'getOn' (ambiguity) ('icons' '[' ']')? 'onColors' '[' onColors+=[Color|ID]
-	 *     get=STRING 'getOn' (ambiguity) ('icons' '[' ']')? ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     get=STRING 'getOn' (ambiguity) ('icons' '[' ']')? ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
 	 *     getOn+=STRING (ambiguity) 'background-icon' bgicon=STRING
-	 *     getOn+=STRING (ambiguity) 'background-on-color' onBackGroundColor=[Color|ID]
 	 *     getOn+=STRING (ambiguity) 'class' class=STRING
-	 *     getOn+=STRING (ambiguity) 'icons' '[' icons+=STRING
+	 *     getOn+=STRING (ambiguity) 'icons' icons+=STRING
+	 *     getOn+=STRING (ambiguity) 'icons'? 'onColors' onColors+=[Color|ID]
+	 *     getOn+=STRING (ambiguity) 'icons'? 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getOn+=STRING (ambiguity) 'icons'? 'onColors'? 'onBackgroundColors'? '}' (rule end)
 	 *     getOn+=STRING (ambiguity) 'off-color' offColor=[Color|ID]
-	 *     getOn+=STRING (ambiguity) 'on-color' onColor=[Color|ID]
-	 *     getOn+=STRING (ambiguity) ('icons' '[' ']')? 'onColors' '[' onColors+=[Color|ID]
-	 *     getOn+=STRING (ambiguity) ('icons' '[' ']')? ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     getOn+=STRING (ambiguity) ('icons' '[' ']')? ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
+	 *     getWarn=STRING (ambiguity) 'background-icon' bgicon=STRING
+	 *     getWarn=STRING (ambiguity) 'class' class=STRING
+	 *     getWarn=STRING (ambiguity) 'icons' icons+=STRING
+	 *     getWarn=STRING (ambiguity) 'icons'? 'onColors' onColors+=[Color|ID]
+	 *     getWarn=STRING (ambiguity) 'icons'? 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getWarn=STRING (ambiguity) 'icons'? 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     getWarn=STRING (ambiguity) 'off-color' offColor=[Color|ID]
 	 */
-	protected void emit_Symbol_GetOffKeyword_7_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Symbol_GetOffKeyword_8_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('icons' '[' ']')?
+	 *     'icons'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     bgicon=STRING (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     bgicon=STRING (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     bgicon=STRING (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     class=STRING (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     class=STRING (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     class=STRING (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     get=STRING 'getOn' 'getOff'? (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     get=STRING 'getOn' 'getOff'? (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     get=STRING 'getOn' 'getOff'? (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     getOff+=STRING (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     getOff+=STRING (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     getOff+=STRING (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     getOn+=STRING 'getOff'? (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     getOn+=STRING 'getOff'? (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     getOn+=STRING 'getOff'? (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     offColor=[Color|ID] (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     offColor=[Color|ID] (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     offColor=[Color|ID] (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     onBackGroundColor=[Color|ID] (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     onBackGroundColor=[Color|ID] (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     onBackGroundColor=[Color|ID] (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     onColor=[Color|ID] (ambiguity) 'onColors' '[' onColors+=[Color|ID]
-	 *     onColor=[Color|ID] (ambiguity) ('onColors' '[' ']')? 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     onColor=[Color|ID] (ambiguity) ('onColors' '[' ']')? ('onBackgroundColors' '[' ']')? '}' (rule end)
+	 *     bgicon=STRING (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     bgicon=STRING (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     bgicon=STRING (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     class=STRING (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     class=STRING (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     class=STRING (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     get=STRING 'getOn' 'getOff'? (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     get=STRING 'getOn' 'getOff'? (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     get=STRING 'getOn' 'getOff'? (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     getOff+=STRING (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     getOff+=STRING (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getOff+=STRING (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     getOn+=STRING 'getOff'? (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     getOn+=STRING 'getOff'? (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getOn+=STRING 'getOff'? (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     getWarn=STRING 'getOff'? (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     getWarn=STRING 'getOff'? (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getWarn=STRING 'getOff'? (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
+	 *     offColor=[Color|ID] (ambiguity) 'onColors' onColors+=[Color|ID]
+	 *     offColor=[Color|ID] (ambiguity) 'onColors'? 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     offColor=[Color|ID] (ambiguity) 'onColors'? 'onBackgroundColors'? '}' (rule end)
 	 */
-	protected void emit_Symbol___IconsKeyword_13_0_LeftSquareBracketKeyword_13_1_RightSquareBracketKeyword_13_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Symbol_IconsKeyword_12_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('onBackgroundColors' '[' ']')?
+	 *     'onBackgroundColors'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     bgicon=STRING ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     class=STRING ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     get=STRING 'getOn' 'getOff'? ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     getOff+=STRING ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     getOn+=STRING 'getOff'? ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     icons+=STRING ']' ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     offColor=[Color|ID] ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     onBackGroundColor=[Color|ID] ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     onColor=[Color|ID] ('icons' '[' ']')? ('onColors' '[' ']')? (ambiguity) '}' (rule end)
-	 *     onColors+=[Color|ID] ']' (ambiguity) '}' (rule end)
+	 *     bgicon=STRING 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     class=STRING 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     get=STRING 'getOn' 'getOff'? 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     getOff+=STRING 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     getOn+=STRING 'getOff'? 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     getWarn=STRING 'getOff'? 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     icons+=STRING 'onColors'? (ambiguity) '}' (rule end)
+	 *     offColor=[Color|ID] 'icons'? 'onColors'? (ambiguity) '}' (rule end)
+	 *     onColors+=[Color|ID] (ambiguity) '}' (rule end)
 	 */
-	protected void emit_Symbol___OnBackgroundColorsKeyword_15_0_LeftSquareBracketKeyword_15_1_RightSquareBracketKeyword_15_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Symbol_OnBackgroundColorsKeyword_14_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('onColors' '[' ']')?
+	 *     'onColors'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     bgicon=STRING ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     bgicon=STRING ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     class=STRING ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     class=STRING ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     get=STRING 'getOn' 'getOff'? ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     get=STRING 'getOn' 'getOff'? ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     getOff+=STRING ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     getOff+=STRING ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     getOn+=STRING 'getOff'? ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     getOn+=STRING 'getOff'? ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     icons+=STRING ']' (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     icons+=STRING ']' (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     offColor=[Color|ID] ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     offColor=[Color|ID] ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     onBackGroundColor=[Color|ID] ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     onBackGroundColor=[Color|ID] ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
-	 *     onColor=[Color|ID] ('icons' '[' ']')? (ambiguity) 'onBackgroundColors' '[' onBackgroundColors+=[Color|ID]
-	 *     onColor=[Color|ID] ('icons' '[' ']')? (ambiguity) ('onBackgroundColors' '[' ']')? '}' (rule end)
+	 *     bgicon=STRING 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     bgicon=STRING 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     class=STRING 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     class=STRING 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     get=STRING 'getOn' 'getOff'? 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     get=STRING 'getOn' 'getOff'? 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     getOff+=STRING 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getOff+=STRING 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     getOn+=STRING 'getOff'? 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getOn+=STRING 'getOff'? 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     getWarn=STRING 'getOff'? 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     getWarn=STRING 'getOff'? 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     icons+=STRING (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     icons+=STRING (ambiguity) 'onBackgroundColors'? '}' (rule end)
+	 *     offColor=[Color|ID] 'icons'? (ambiguity) 'onBackgroundColors' onBackgroundColors+=[Color|ID]
+	 *     offColor=[Color|ID] 'icons'? (ambiguity) 'onBackgroundColors'? '}' (rule end)
 	 */
-	protected void emit_Symbol___OnColorsKeyword_14_0_LeftSquareBracketKeyword_14_1_RightSquareBracketKeyword_14_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Symbol_OnColorsKeyword_13_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

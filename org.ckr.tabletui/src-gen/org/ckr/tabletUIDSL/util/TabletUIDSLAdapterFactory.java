@@ -105,14 +105,64 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
         return createPageAdapter();
       }
       @Override
+      public Adapter caseScreensaver(Screensaver object)
+      {
+        return createScreensaverAdapter();
+      }
+      @Override
+      public Adapter caseTemplate(Template object)
+      {
+        return createTemplateAdapter();
+      }
+      @Override
       public Adapter caseGridster(Gridster object)
       {
         return createGridsterAdapter();
       }
       @Override
+      public Adapter caseWidgetDef(WidgetDef object)
+      {
+        return createWidgetDefAdapter();
+      }
+      @Override
       public Adapter caseWidget(Widget object)
       {
         return createWidgetAdapter();
+      }
+      @Override
+      public Adapter caseClock(Clock object)
+      {
+        return createClockAdapter();
+      }
+      @Override
+      public Adapter caseSwiper(Swiper object)
+      {
+        return createSwiperAdapter();
+      }
+      @Override
+      public Adapter caseTemplateRef(TemplateRef object)
+      {
+        return createTemplateRefAdapter();
+      }
+      @Override
+      public Adapter caseSelect(Select object)
+      {
+        return createSelectAdapter();
+      }
+      @Override
+      public Adapter caseVolume(Volume object)
+      {
+        return createVolumeAdapter();
+      }
+      @Override
+      public Adapter casePush(Push object)
+      {
+        return createPushAdapter();
+      }
+      @Override
+      public Adapter caseImage(Image object)
+      {
+        return createImageAdapter();
       }
       @Override
       public Adapter caseSwitch(Switch object)
@@ -130,14 +180,44 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
         return createDivAdapter();
       }
       @Override
+      public Adapter caseitunes_artwork(itunes_artwork object)
+      {
+        return createitunes_artworkAdapter();
+      }
+      @Override
+      public Adapter caseWeather(Weather object)
+      {
+        return createWeatherAdapter();
+      }
+      @Override
       public Adapter caseCalview(Calview object)
       {
         return createCalviewAdapter();
       }
       @Override
+      public Adapter casePopup(Popup object)
+      {
+        return createPopupAdapter();
+      }
+      @Override
+      public Adapter caseLink(Link object)
+      {
+        return createLinkAdapter();
+      }
+      @Override
+      public Adapter caseButtonUrl(ButtonUrl object)
+      {
+        return createButtonUrlAdapter();
+      }
+      @Override
       public Adapter caseButton(Button object)
       {
         return createButtonAdapter();
+      }
+      @Override
+      public Adapter caseKlimatrend(Klimatrend object)
+      {
+        return createKlimatrendAdapter();
       }
       @Override
       public Adapter caseSymbol(Symbol object)
@@ -277,6 +357,36 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Screensaver <em>Screensaver</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Screensaver
+   * @generated
+   */
+  public Adapter createScreensaverAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Template <em>Template</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Template
+   * @generated
+   */
+  public Adapter createTemplateAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Gridster <em>Gridster</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -292,6 +402,21 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.WidgetDef <em>Widget Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.WidgetDef
+   * @generated
+   */
+  public Adapter createWidgetDefAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Widget <em>Widget</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -302,6 +427,111 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWidgetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Clock <em>Clock</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Clock
+   * @generated
+   */
+  public Adapter createClockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Swiper <em>Swiper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Swiper
+   * @generated
+   */
+  public Adapter createSwiperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.TemplateRef <em>Template Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.TemplateRef
+   * @generated
+   */
+  public Adapter createTemplateRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Select <em>Select</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Select
+   * @generated
+   */
+  public Adapter createSelectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Volume <em>Volume</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Volume
+   * @generated
+   */
+  public Adapter createVolumeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Push <em>Push</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Push
+   * @generated
+   */
+  public Adapter createPushAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Image <em>Image</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Image
+   * @generated
+   */
+  public Adapter createImageAdapter()
   {
     return null;
   }
@@ -352,6 +582,36 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.itunes_artwork <em>itunes artwork</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.itunes_artwork
+   * @generated
+   */
+  public Adapter createitunes_artworkAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Weather <em>Weather</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Weather
+   * @generated
+   */
+  public Adapter createWeatherAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Calview <em>Calview</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -367,6 +627,51 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Popup <em>Popup</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Popup
+   * @generated
+   */
+  public Adapter createPopupAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Link <em>Link</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Link
+   * @generated
+   */
+  public Adapter createLinkAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.ButtonUrl <em>Button Url</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.ButtonUrl
+   * @generated
+   */
+  public Adapter createButtonUrlAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Button <em>Button</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -377,6 +682,21 @@ public class TabletUIDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createButtonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ckr.tabletUIDSL.Klimatrend <em>Klimatrend</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ckr.tabletUIDSL.Klimatrend
+   * @generated
+   */
+  public Adapter createKlimatrendAdapter()
   {
     return null;
   }

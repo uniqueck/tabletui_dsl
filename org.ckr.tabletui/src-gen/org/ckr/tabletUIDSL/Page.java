@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.ckr.tabletUIDSL.Page#getName <em>Name</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Page#getScreensaver <em>Screensaver</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Page#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -24,30 +24,30 @@ import org.eclipse.emf.common.util.EList;
 public interface Page extends AbstractElement
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Screensaver</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Screensaver</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getPage_Name()
+   * @return the value of the '<em>Screensaver</em>' reference.
+   * @see #setScreensaver(Screensaver)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getPage_Screensaver()
    * @model
    * @generated
    */
-  String getName();
+  Screensaver getScreensaver();
 
   /**
-   * Sets the value of the '{@link org.ckr.tabletUIDSL.Page#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Page#getScreensaver <em>Screensaver</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Screensaver</em>' reference.
+   * @see #getScreensaver()
    * @generated
    */
-  void setName(String value);
+  void setScreensaver(Screensaver value);
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

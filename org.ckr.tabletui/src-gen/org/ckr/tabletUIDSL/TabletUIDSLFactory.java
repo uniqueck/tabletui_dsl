@@ -77,6 +77,24 @@ public interface TabletUIDSLFactory extends EFactory
   Page createPage();
 
   /**
+   * Returns a new object of class '<em>Screensaver</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Screensaver</em>'.
+   * @generated
+   */
+  Screensaver createScreensaver();
+
+  /**
+   * Returns a new object of class '<em>Template</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Template</em>'.
+   * @generated
+   */
+  Template createTemplate();
+
+  /**
    * Returns a new object of class '<em>Gridster</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -86,6 +104,15 @@ public interface TabletUIDSLFactory extends EFactory
   Gridster createGridster();
 
   /**
+   * Returns a new object of class '<em>Widget Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Widget Def</em>'.
+   * @generated
+   */
+  WidgetDef createWidgetDef();
+
+  /**
    * Returns a new object of class '<em>Widget</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,6 +120,69 @@ public interface TabletUIDSLFactory extends EFactory
    * @generated
    */
   Widget createWidget();
+
+  /**
+   * Returns a new object of class '<em>Clock</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Clock</em>'.
+   * @generated
+   */
+  Clock createClock();
+
+  /**
+   * Returns a new object of class '<em>Swiper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Swiper</em>'.
+   * @generated
+   */
+  Swiper createSwiper();
+
+  /**
+   * Returns a new object of class '<em>Template Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Template Ref</em>'.
+   * @generated
+   */
+  TemplateRef createTemplateRef();
+
+  /**
+   * Returns a new object of class '<em>Select</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Select</em>'.
+   * @generated
+   */
+  Select createSelect();
+
+  /**
+   * Returns a new object of class '<em>Volume</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Volume</em>'.
+   * @generated
+   */
+  Volume createVolume();
+
+  /**
+   * Returns a new object of class '<em>Push</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Push</em>'.
+   * @generated
+   */
+  Push createPush();
+
+  /**
+   * Returns a new object of class '<em>Image</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Image</em>'.
+   * @generated
+   */
+  Image createImage();
 
   /**
    * Returns a new object of class '<em>Switch</em>'.
@@ -122,6 +212,24 @@ public interface TabletUIDSLFactory extends EFactory
   Div createDiv();
 
   /**
+   * Returns a new object of class '<em>itunes artwork</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>itunes artwork</em>'.
+   * @generated
+   */
+  itunes_artwork createitunes_artwork();
+
+  /**
+   * Returns a new object of class '<em>Weather</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Weather</em>'.
+   * @generated
+   */
+  Weather createWeather();
+
+  /**
    * Returns a new object of class '<em>Calview</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -131,6 +239,33 @@ public interface TabletUIDSLFactory extends EFactory
   Calview createCalview();
 
   /**
+   * Returns a new object of class '<em>Popup</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Popup</em>'.
+   * @generated
+   */
+  Popup createPopup();
+
+  /**
+   * Returns a new object of class '<em>Link</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Link</em>'.
+   * @generated
+   */
+  Link createLink();
+
+  /**
+   * Returns a new object of class '<em>Button Url</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Button Url</em>'.
+   * @generated
+   */
+  ButtonUrl createButtonUrl();
+
+  /**
    * Returns a new object of class '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,6 +273,15 @@ public interface TabletUIDSLFactory extends EFactory
    * @generated
    */
   Button createButton();
+
+  /**
+   * Returns a new object of class '<em>Klimatrend</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Klimatrend</em>'.
+   * @generated
+   */
+  Klimatrend createKlimatrend();
 
   /**
    * Returns a new object of class '<em>Symbol</em>'.

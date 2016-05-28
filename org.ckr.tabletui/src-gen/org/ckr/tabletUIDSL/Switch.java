@@ -15,6 +15,7 @@ package org.ckr.tabletUIDSL;
  *   <li>{@link org.ckr.tabletUIDSL.Switch#getDevice <em>Device</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Switch#getGet <em>Get</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Switch#getGetOn <em>Get On</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Switch#getSetOn <em>Set On</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Switch#getGetOff <em>Get Off</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Switch#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Switch#getOnColor <em>On Color</em>}</li>
@@ -107,6 +108,32 @@ public interface Switch extends Widget
    * @generated
    */
   void setGetOn(String value);
+
+  /**
+   * Returns the value of the '<em><b>Set On</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Set On</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Set On</em>' attribute.
+   * @see #setSetOn(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getSwitch_SetOn()
+   * @model
+   * @generated
+   */
+  String getSetOn();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Switch#getSetOn <em>Set On</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Set On</em>' attribute.
+   * @see #getSetOn()
+   * @generated
+   */
+  void setSetOn(String value);
 
   /**
    * Returns the value of the '<em><b>Get Off</b></em>' attribute.

@@ -15,6 +15,10 @@ package org.ckr.tabletUIDSL;
  *   <li>{@link org.ckr.tabletUIDSL.Label#getDevice <em>Device</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Label#getGet <em>Get</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Label#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Label#getStyle <em>Style</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Label#getUnit <em>Unit</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Label#getPart <em>Part</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Label#getSubstitution <em>Substitution</em>}</li>
  * </ul>
  *
  * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getLabel()
@@ -100,5 +104,109 @@ public interface Label extends Widget
    * @generated
    */
   void setClass(String value);
+
+  /**
+   * Returns the value of the '<em><b>Style</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Style</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Style</em>' attribute.
+   * @see #setStyle(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getLabel_Style()
+   * @model
+   * @generated
+   */
+  String getStyle();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Label#getStyle <em>Style</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Style</em>' attribute.
+   * @see #getStyle()
+   * @generated
+   */
+  void setStyle(String value);
+
+  /**
+   * Returns the value of the '<em><b>Unit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Unit</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Unit</em>' attribute.
+   * @see #setUnit(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getLabel_Unit()
+   * @model
+   * @generated
+   */
+  String getUnit();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Label#getUnit <em>Unit</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Unit</em>' attribute.
+   * @see #getUnit()
+   * @generated
+   */
+  void setUnit(String value);
+
+  /**
+   * Returns the value of the '<em><b>Part</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Part</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Part</em>' attribute.
+   * @see #setPart(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getLabel_Part()
+   * @model
+   * @generated
+   */
+  String getPart();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Label#getPart <em>Part</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Part</em>' attribute.
+   * @see #getPart()
+   * @generated
+   */
+  void setPart(String value);
+
+  /**
+   * Returns the value of the '<em><b>Substitution</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Substitution</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Substitution</em>' attribute.
+   * @see #setSubstitution(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getLabel_Substitution()
+   * @model
+   * @generated
+   */
+  String getSubstitution();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Label#getSubstitution <em>Substitution</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Substitution</em>' attribute.
+   * @see #getSubstitution()
+   * @generated
+   */
+  void setSubstitution(String value);
 
 } // Label

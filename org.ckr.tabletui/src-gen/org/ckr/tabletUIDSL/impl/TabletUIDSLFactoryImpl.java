@@ -70,13 +70,29 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
       case TabletUIDSLPackage.CSS: return createCSS();
       case TabletUIDSLPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case TabletUIDSLPackage.PAGE: return createPage();
+      case TabletUIDSLPackage.SCREENSAVER: return createScreensaver();
+      case TabletUIDSLPackage.TEMPLATE: return createTemplate();
       case TabletUIDSLPackage.GRIDSTER: return createGridster();
+      case TabletUIDSLPackage.WIDGET_DEF: return createWidgetDef();
       case TabletUIDSLPackage.WIDGET: return createWidget();
+      case TabletUIDSLPackage.CLOCK: return createClock();
+      case TabletUIDSLPackage.SWIPER: return createSwiper();
+      case TabletUIDSLPackage.TEMPLATE_REF: return createTemplateRef();
+      case TabletUIDSLPackage.SELECT: return createSelect();
+      case TabletUIDSLPackage.VOLUME: return createVolume();
+      case TabletUIDSLPackage.PUSH: return createPush();
+      case TabletUIDSLPackage.IMAGE: return createImage();
       case TabletUIDSLPackage.SWITCH: return createSwitch();
       case TabletUIDSLPackage.CUSTOM: return createCustom();
       case TabletUIDSLPackage.DIV: return createDiv();
+      case TabletUIDSLPackage.ITUNES_ARTWORK: return createitunes_artwork();
+      case TabletUIDSLPackage.WEATHER: return createWeather();
       case TabletUIDSLPackage.CALVIEW: return createCalview();
+      case TabletUIDSLPackage.POPUP: return createPopup();
+      case TabletUIDSLPackage.LINK: return createLink();
+      case TabletUIDSLPackage.BUTTON_URL: return createButtonUrl();
       case TabletUIDSLPackage.BUTTON: return createButton();
+      case TabletUIDSLPackage.KLIMATREND: return createKlimatrend();
       case TabletUIDSLPackage.SYMBOL: return createSymbol();
       case TabletUIDSLPackage.SIMPLE_CLOCK: return createSimpleClock();
       case TabletUIDSLPackage.SIMPLE_CHART: return createSimpleChart();
@@ -158,6 +174,28 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
    * <!-- end-user-doc -->
    * @generated
    */
+  public Screensaver createScreensaver()
+  {
+    ScreensaverImpl screensaver = new ScreensaverImpl();
+    return screensaver;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Template createTemplate()
+  {
+    TemplateImpl template = new TemplateImpl();
+    return template;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Gridster createGridster()
   {
     GridsterImpl gridster = new GridsterImpl();
@@ -169,10 +207,98 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
    * <!-- end-user-doc -->
    * @generated
    */
+  public WidgetDef createWidgetDef()
+  {
+    WidgetDefImpl widgetDef = new WidgetDefImpl();
+    return widgetDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Widget createWidget()
   {
     WidgetImpl widget = new WidgetImpl();
     return widget;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Clock createClock()
+  {
+    ClockImpl clock = new ClockImpl();
+    return clock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Swiper createSwiper()
+  {
+    SwiperImpl swiper = new SwiperImpl();
+    return swiper;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TemplateRef createTemplateRef()
+  {
+    TemplateRefImpl templateRef = new TemplateRefImpl();
+    return templateRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Select createSelect()
+  {
+    SelectImpl select = new SelectImpl();
+    return select;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Volume createVolume()
+  {
+    VolumeImpl volume = new VolumeImpl();
+    return volume;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Push createPush()
+  {
+    PushImpl push = new PushImpl();
+    return push;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Image createImage()
+  {
+    ImageImpl image = new ImageImpl();
+    return image;
   }
 
   /**
@@ -213,6 +339,28 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
    * <!-- end-user-doc -->
    * @generated
    */
+  public itunes_artwork createitunes_artwork()
+  {
+    itunes_artworkImpl itunes_artwork = new itunes_artworkImpl();
+    return itunes_artwork;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Weather createWeather()
+  {
+    WeatherImpl weather = new WeatherImpl();
+    return weather;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Calview createCalview()
   {
     CalviewImpl calview = new CalviewImpl();
@@ -224,10 +372,54 @@ public class TabletUIDSLFactoryImpl extends EFactoryImpl implements TabletUIDSLF
    * <!-- end-user-doc -->
    * @generated
    */
+  public Popup createPopup()
+  {
+    PopupImpl popup = new PopupImpl();
+    return popup;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Link createLink()
+  {
+    LinkImpl link = new LinkImpl();
+    return link;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ButtonUrl createButtonUrl()
+  {
+    ButtonUrlImpl buttonUrl = new ButtonUrlImpl();
+    return buttonUrl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Button createButton()
   {
     ButtonImpl button = new ButtonImpl();
     return button;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Klimatrend createKlimatrend()
+  {
+    KlimatrendImpl klimatrend = new KlimatrendImpl();
+    return klimatrend;
   }
 
   /**

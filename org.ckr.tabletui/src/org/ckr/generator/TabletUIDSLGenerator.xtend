@@ -5,22 +5,38 @@ package org.ckr.generator
 
 import javax.inject.Inject
 import org.ckr.tabletUIDSL.Button
+import org.ckr.tabletUIDSL.CSS
 import org.ckr.tabletUIDSL.Calview
+import org.ckr.tabletUIDSL.Clock
 import org.ckr.tabletUIDSL.Custom
 import org.ckr.tabletUIDSL.Div
 import org.ckr.tabletUIDSL.Gridster
+import org.ckr.tabletUIDSL.Image
+import org.ckr.tabletUIDSL.Klimatrend
 import org.ckr.tabletUIDSL.Label
+import org.ckr.tabletUIDSL.Link
 import org.ckr.tabletUIDSL.Page
+import org.ckr.tabletUIDSL.Popup
+import org.ckr.tabletUIDSL.Push
+import org.ckr.tabletUIDSL.Screensaver
+import org.ckr.tabletUIDSL.Select
 import org.ckr.tabletUIDSL.SimpleChart
 import org.ckr.tabletUIDSL.SimpleClock
+import org.ckr.tabletUIDSL.Swiper
+import org.ckr.tabletUIDSL.Switch
 import org.ckr.tabletUIDSL.Symbol
 import org.ckr.tabletUIDSL.TabletUI
+import org.ckr.tabletUIDSL.Template
+import org.ckr.tabletUIDSL.Volume
+import org.ckr.tabletUIDSL.Weather
 import org.ckr.tabletUIDSL.Widget
+import org.ckr.tabletUIDSL.WidgetDef
+import org.ckr.tabletUIDSL.itunes_artwork
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.util.Switch
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.ckr.tabletUIDSL.ButtonUrl
 
 /**
  * Generates code from your model files on save.
@@ -35,22 +51,66 @@ class TabletUIDSLGenerator implements IGenerator {
 
 	@Inject extension IQualifiedNameProvider;
 
+	var resourceRootFolder = null; 
+
 	def generateHtml(Resource resource, IFileSystemAccess fsa) {
+		resourceRootFolder = resource.URI.trimFileExtension.lastSegment;
+				
 		for (e : resource.allContents.toIterable.filter(typeof(Page))) {
-			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".html", e.compile)
+			fsa.generateFile(resourceRootFolder + "/" + e.fullyQualifiedName.toString("/") + ".html", e.compile)
 		}
+		for (e : resource.allContents.toIterable.filter(typeof(Template))) {
+			fsa.generateFile(resourceRootFolder + "/" + e.fullyQualifiedName.toString("/") + "-template.html", e.compile)
+		}
+		for (e : resource.allContents.toIterable.filter(typeof(Screensaver))) {
+			fsa.generateFile(resourceRootFolder + "/" + e.fullyQualifiedName.toString("/") + "-screensaver.html", e.compile)
+		}
+		
+		/*
+		 * Generieren von CSS Files, solange ich noch keine CSS DSL implementiert habe, sinnlos
+		 */
+//		for (e : resource.allContents.toIterable.filter(typeof(Settings))) {
+//			for ( css : e.settings.filter(typeof(CSS))) {
+//				fsa.generateFile(resourceRootFolder + "/" + css.path, css.fileContent)				
+//			}
+//		}
 	}
+	
+	def fileContent(CSS css)'''
+			
+	'''
+
+	def compile(Screensaver screensaver)'''
+		<div id="screensaver">
+		«FOR g : screensaver.widgets»
+			«g.compile»
+		«ENDFOR»
+		</div>
+	'''
 
 	def compile(
-		Page page
+		Template template
 	) '''
+		«FOR g : template.elements»
+			«g.compile»
+		«ENDFOR»
+	'''
+
+	def compile(CSS css)
+	'''
+		<link rel="stylesheet" href="./«css.path»">
+	'''
+
+	def compile(Page page)	
+	'''
 		<!DOCTYPE html>
 		<html>
 			<head>
 				<title>«(page.eContainer as TabletUI).settings.title»</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-				<meta name="widget_base_width" content="«(page.eContainer as TabletUI).settings.width / (page.eContainer as TabletUI).settings.columns»">
-				<meta name="widget_base_height" content="«(page.eContainer as TabletUI).settings.height / (page.eContainer as TabletUI).settings.rows»">
+				<meta name="widget_base_width" content="«((page.eContainer as TabletUI).settings.width - (2+2*(page.eContainer as TabletUI).settings.columns-1) * (page.eContainer as TabletUI).settings.margin) / (page.eContainer as TabletUI).settings.columns»">
+				<meta name="widget_base_height" content="«((page.eContainer as TabletUI).settings.height - (2+2*(page.eContainer as TabletUI).settings.rows-1) * (page.eContainer as TabletUI).settings.margin) / (page.eContainer as TabletUI).settings.rows»">
+				<meta name="widget_margin" content="«(page.eContainer as TabletUI).settings.margin»"/>
 				<meta name="mobile-web-app-capable" content="yes">
 				<meta name="apple-mobile-web-app-capable" content="yes">
 				<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,30 +124,73 @@ class TabletUIDSLGenerator implements IGenerator {
 				«IF ((page.eContainer as TabletUI).settings.debug == 'true')»
 					<meta name='debug' content='1' />
 				«ENDIF»
-				<link rel="stylesheet" href="./lib/jquery.gridster.min.css">
-				<link rel="stylesheet" href="./css/fhem-tablet-ui.css">
-				<link rel="stylesheet" href="./css/wopr.css">
-				<link rel="stylesheet" href="./css/style.css">
-				<link rel="stylesheet" href="./css/own.css">
-				<link rel="stylesheet" href="./lib/font-awesome.min.css">
-				<link rel="stylesheet" href="./lib/jquery.toast.min.css">
-				<link rel="stylesheet" href="./lib/powerange.min.css">
-				<link rel="stylesheet" href="./lib/openautomation.css">
+				<link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css">
+				<link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css">
+				<link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css">
+				<link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css">
 				
-				<script type="text/javascript" src="./js/jquery.min.js"></script>
-				      <script type="text/javascript" src="./lib/jquery.knob.mod.min.js"></script>
-				<script type="text/javascript" src="./lib/jquery.toast.min.js"></script>
-				<script type="text/javascript" src="./lib/jquery.circlemenu.js"></script>
-				<script type="text/javascript" src="./lib/powerange.min.js"></script>
-				<script type="text/javascript" src="./lib/jquery.gridster.min.js"></script>
-				      <script type="text/javascript" src="./lib/fa-multi-button.min.js"></script>
-				<script type="text/javascript" src="./js/widget_calview.js"></script>	
-				<script type="text/javascript" src="./js/fhem-tablet-ui.js"></script>
+				«FOR css : ((page.eContainer as TabletUI).settings).settings.filter(typeof(CSS))»
+					«css.compile»	
+				«ENDFOR»
 				
-				<script type="text/javascript" src="./js/cordova-2.3.0.js"></script>
+				<script src="/fhem/pgm2/jquery.min.js" defer></script>
+				<script src="/fhem/tablet/lib/jquery.toast.min.js" defer></script>
+				<script src="/fhem/tablet/lib/jquery.gridster.min.js" defer></script>
+				<script src="/fhem/tablet/js/fhem-tablet-ui.min.js" defer></script>
 				
+				«IF page.screensaver != null»
+				<script type="text/javascript">
+						$(document).on('ready', function() {
+						if ($('#screensaver')) {
+						$('#screensaver').hide();
+						    var mousetimeout;
+						    var screensaver_active = false;
+						    var idletime = 60;
+						
+						    function show_screensaver(){
+						        $('#screensaver').fadeIn();
+						        screensaver_active = true;
+						    }
+						
+						    function stop_screensaver(){
+						        $('#screensaver').fadeOut();
+						        screensaver_active = false;
+						    }
+						
+						    $(document).mousemove(function(){
+						        clearTimeout(mousetimeout);
+						
+						        if (screensaver_active) {
+						            stop_screensaver();
+						        }
+						
+						        mousetimeout = setTimeout(function(){
+						            show_screensaver();
+						        }, 1000 * idletime); // 5 secs			
+						    });
+						  }
+						});
+					</script>
+					
+					<style>
+					#screensaver { 
+						position: absolute; 
+						width: 100%; 
+						height:100%; 
+						left:0px; 
+						top: 0px; 
+						display: none; 
+						z-index:9999; 
+						background-color:#111111;
+					}
+					</style>
+					
+				«ENDIF»
 			</head>
-			<body>
+			<body topmargin="0" leftmargin="0" margin="0">
+			«IF page.screensaver != null»
+				<div data-template="«page.screensaver.name»-screensaver.html"></div>
+			«ENDIF»
 			<div class="gridster">
 				<ul>
 				«FOR g : page.elements»
@@ -99,19 +202,51 @@ class TabletUIDSLGenerator implements IGenerator {
 		</html>
 	'''
 
+
+	def compile(Swiper swiper)'''
+		<div data-type="swiper" data-height="«swiper.height»" data-width="«swiper.width»" «IF swiper.autoplay > 0»data-autoplay="«swiper.autoplay»"«ENDIF»>
+			<ul>
+				«FOR div : swiper.divs»
+					<li>
+						«div.compile»
+					</li>
+				«ENDFOR»
+			</ul>
+		</div>
+	'''
+	
+	def compile(
+		WidgetDef widgetDef
+	) '''
+		«IF widgetDef instanceof Div»
+			<div class="«(widgetDef as Div).compile»"
+			«FOR w : (widgetDef as Div).widgets»
+				«(w as WidgetDef).compile»
+			«ENDFOR»
+			</div>
+		«ELSE»
+			«(widgetDef as Widget).compile»
+		«ENDIF»
+	'''
+
 	def compile(
 		Gridster gridster
 	) '''
-		<li data-row="«gridster.row»" data-col="«gridster.column»" data-sizex="«IF gridster.colspan == 0»1«ELSE»«gridster.colspan»«ENDIF»" data-sizey="«IF (gridster.rowspan == 0)»1«ELSE»«gridster.rowspan»«ENDIF»" class="gs-w">
+		<li data-row="«gridster.row»" data-col="«gridster.column»" data-sizex="«IF gridster.colspan == 0»1«ELSE»«gridster.colspan»«ENDIF»" data-sizey="«IF (gridster.rowspan == 0)»1«ELSE»«gridster.rowspan»«ENDIF»" 
+		class="gs-w«IF gridster.class_ != null» «gridster.class_»«ENDIF»"
+		«IF gridster.style != null»style="«gridster.style»"«ENDIF»>
 			«IF gridster.header != null && !gridster.header.equals("")»
 				<header>«gridster.header»</header>
 			«ENDIF»
 			«FOR w : gridster.widgets»
-				«w.compile»
+				«IF w instanceof Div»
+					«(w as Div).compile»
+				«ELSE»
+					«(w as Widget).compile»
+				«ENDIF»
 			«ENDFOR»
 		</li> 
 	'''
-	
 
 	def compile(Widget widget) '''
 		«IF widget instanceof Button»
@@ -124,15 +259,81 @@ class TabletUIDSLGenerator implements IGenerator {
 			«(widget as Calview).compile»
 			«ELSEIF widget instanceof SimpleChart»
 			«(widget as SimpleChart).compile»
-		«ELSEIF widget 	instanceof Div»
-			«(widget as Div).compile»
 		«ELSEIF widget instanceof Custom»
-		«(widget as Custom).compile»
+			«(widget as Custom).compile»
 		«ELSEIF widget instanceof Label»
-		«(widget as Label).compile»	
-		«ELSEIF widget instanceof org.ckr.tabletUIDSL.Switch»
-		«(widget as org.ckr.tabletUIDSL.Switch).compile»	
+			«(widget as Label).compile»	
+		«ELSEIF widget instanceof Switch»
+			«(widget as Switch).compile»
+			«ELSEIF widget instanceof Weather»
+			«(widget as Weather).compile»
+			«ELSEIF widget instanceof Klimatrend»
+			«(widget as Klimatrend).compile»
+			«ELSEIF widget instanceof Image»
+			«(widget as Image).compile»	
+			«ELSEIF widget instanceof Push»
+			«(widget as Push).compile»
+			«ELSEIF widget instanceof Volume»
+			«(widget as Volume).compile»
+			«ELSEIF widget instanceof Select»
+			«(widget as Select).compile»
+			«ELSEIF widget instanceof itunes_artwork»
+			«(widget as itunes_artwork).compile»
+			«ELSEIF widget instanceof Swiper»
+			«(widget as Swiper).compile»
+			«ELSEIF widget instanceof Popup»
+			«(widget as Popup).compile»
+			«ELSEIF widget instanceof Link»
+			«(widget as Link).compile»
+			«ELSEIF widget instanceof Clock»
+			«(widget as Clock).compile»
 		«ENDIF»		
+	'''
+
+	def compile(Clock clock)'''
+		<div data-type="clock" data-format="«clock.format»"
+		 	«IF clock.interval > 0»data-intervall="«clock.interval»"«ENDIF»
+		 	«IF clock.class_ != null»class="«clock.class_»"«ENDIF»
+		 	«IF clock.style != null»style="«clock.style»"«ENDIF»>
+		</div>		
+	'''
+
+	def compile(Link link)'''
+		<div data-type="link"
+		«IF link.class_ != null»class="«link.class_»"«ENDIF»
+		«IF link.width != null»data-width="«link.width»"«ENDIF»
+		«IF link.height != null»data-height="«link.height»"«ENDIF»
+		«IF link.backgroundColor != null»data-background-color="«link.backgroundColor.rgb»"«ENDIF»
+		«IF link.color != null»data-color="«link.color.rgb»"«ENDIF»
+		«IF link.icon != null»data-icon="«link.icon»"«ENDIF»
+		«IF link.cmd != null»data-fhem-cmd="«link.cmd»"«ENDIF»
+		>
+			«IF link.label != null»«link.label»«ENDIF»
+		</div>
+	'''
+
+	def compile(Select select) '''
+		<div data-type="select" data-device="«select.device»"
+			«IF select.get != null»data-get="«select.get»"«ENDIF»
+			«IF select.list != null»data-list="«select.list»"«ENDIF»
+			«IF select.set != null»data-set="«select.set»"«ENDIF»
+			«IF select.items != null»data-items="«select.items»"«ENDIF»
+			«IF select.alias != null»data-alias="«select.alias»"«ENDIF»
+			«IF select.cmd != null»data-cmd="«select.cmd»"«ENDIF»
+			«IF select.quote != null»data-quote="«select.quote»"«ENDIF»
+			«IF select.class_ != null»class="«select.class_»"«ENDIF»
+		>			
+		</div>
+	'''
+
+	def compile(Volume volume) '''
+		<div data-type="volume" data-device="«volume.device»"
+		«IF volume.get != null»data-get="«volume.get»"«ENDIF»
+		«IF volume.set != null»data-set="«volume.set»"«ENDIF»
+		«IF volume.min != null»data-min="«volume.min»"«ENDIF»
+		«IF volume.max != null»data-max="«volume.max»"«ENDIF»
+		>
+		</div>
 	'''
 
 	def compile(SimpleClock simpleClock) '''
@@ -157,22 +358,89 @@ class TabletUIDSLGenerator implements IGenerator {
 		</div>
 	'''
 
-	def compile(Label label) '''
-		<div data-type="label" class="«label.class_»" data-device="«label.device»" data-get="«label.get»">
+	def compile(
+		Label label
+	) '''
+		<div data-type="label" «IF label.class_ != null»class="«label.class_»"«ENDIF» data-device="«label.device»" data-get="«label.get»"
+			«IF label.unit != null»data-unit="«label.unit»"«ENDIF»
+			«IF label.part != null»data-part="«label.part»"«ENDIF»
+			«IF label.substitution != null»data-substitution="«label.substitution»"«ENDIF»
+			«IF label.style != null»style="«label.style»"«ENDIF»
+		>
 		</div>
+	'''
+
+	def compile(Klimatrend kl) '''
+		<div data-type="klimatrend" data-device="«kl.device»" data-get="«kl.get»"
+			«IF kl.class_ != null»class="«kl.class_»"«ENDIF»
+			«IF kl.refperiod > 1»data-refperiod="«kl.refperiod»"«ENDIF»
+			«IF kl.stagnatingColor != null»data-stagnating-color="«kl.stagnatingColor.rgb»"«ENDIF»
+			«IF kl.icon != null»data-icon="«kl.icon»"«ENDIF»
+			«IF kl.risingColor != null»data-rising-color="«kl.risingColor.rgb»"«ENDIF»
+			«IF kl.fallingColor != null»data-falling-color="«kl.fallingColor.rgb»"«ENDIF»
+			«IF kl.highmark > 1»data-highmark="«kl.highmark»"«ENDIF»
+			«IF kl.highmarkIcon != null»data-highmark-icon="«kl.highmarkIcon»"«ENDIF»
+			«IF kl.highmarkRisingColor != null»data-highmark-rising-color="«kl.highmarkRisingColor.rgb»"«ENDIF»
+			«IF kl.highmarkFallingColor != null»data-highmark-falling-color="«kl.highmarkFallingColor.rgb»"«ENDIF»>
+		</div>
+	'''
+
+	def compile(ButtonUrl url)'''
+		«IF url.page != null»
+			data-url="«(url.page as Page).name».html"
+		«ELSEIF url.fhemCmd != null»
+			data-fhem-cmd="«url.fhemCmd»"
+		«ELSE»
+			data-url="«url.url»"
+		«ENDIF»
 	'''
 
 	def compile(Button button) '''
 		<div  
 			class="«button.class_»" 
-			«IF button.backgroundColor != null»data-on-background-color="«button.backgroundColor.rgb»"«ENDIF» 
-			«IF button.color != null»data-color="«button.color.rgb»"«ENDIF» 
+			«IF button.onBackgroundColor != null»data-on-background-color="«button.onBackgroundColor.rgb»"«ENDIF» 
+			«IF button.onColor != null»data-on-color="«button.onColor.rgb»"«ENDIF» 
+			«IF button.offBackgroundColor != null»data-off-background-color="«button.offBackgroundColor.rgb»"«ENDIF» 
+			«IF button.offColor != null»data-off-color="«button.offColor.rgb»"«ENDIF» 
+			«IF button.backgroundIcon != null»data-background-icon="«button.backgroundIcon»"«ENDIF» 
 			data-icon="«button.icon»" 
 			data-type="button" 
-			«IF button.url != null»
-				data-url="«(button.url as Page).name».html"
+			«button.target.compile»
+			«IF button.device != null»
+				data-device="«button.device»"
+			«ENDIF»
+			«IF button.get != null»
+				data-get="«button.get»"
+			«ENDIF»
+			«IF button.getOn != null»
+				data-get-on="«button.getOn»"
+			«ENDIF»
+			«IF button.getWarn != null»
+				data-get-warn="«button.getWarn»"
+			«ENDIF»
+			«IF button.getOff != null»
+				data-get-off="«button.getOff»"
 			«ENDIF»
 			>
+		</div>
+	'''
+	
+	
+	def compile(Popup popup)'''
+		<div data-type="popup"
+			«IF popup.width != null»data-width="«popup.width»"«ENDIF»
+			«IF popup.height != null»data-height="«popup.height»"«ENDIF»>
+			<div data-type="push" 
+			«IF popup.openBackgroundIcon != null»data-background-icon="«popup.openBackgroundIcon»"«ENDIF»
+			«IF popup.openIcon != null»data-icon="«popup.openIcon»"«ENDIF»
+			«IF popup.openClass != null»class="«popup.openClass»"«ENDIF»
+			</div>
+			<div class="dialog dialogTransparent">
+				<header class="dialogheaderTransparent">«IF popup.header != null»«popup.header»«ENDIF»</header>
+				«FOR w:popup.widgets»
+					«w.compile»
+				«ENDFOR»
+			</div>
 		</div>
 	'''
 
@@ -185,18 +453,21 @@ class TabletUIDSLGenerator implements IGenerator {
 			«IF s.class_ != null»
 				class="«s.class_»"
 			«ENDIF»
+			«IF s.getWarn != null»
+				data-get-warn="«s.getWarn»"
+			«ENDIF»
 			«IF s.getOn.length == 1»
 				data-get-on="«s.getOn.get(0)»"
 			«ELSEIF s.getOn.length > 1»
 				data-get-on='["«s.getOn.get(0)»"«FOR getOn : s.getOn.subList(1,s.getOn.length)»,"«getOn»"«ENDFOR»]'
 			«ENDIF»
-			«IF s.onColor != null»
-				data-on-color="«s.onColor.rgb»"
+			«IF s.onColors.length == 1»
+				data-on-color="«s.onColors.get(0).rgb»"
 			«ELSEIF s.onColors.length > 1»
 				data-on-colors='["«s.onColors.get(0).rgb»"«FOR color : s.onColors.subList(1, s.onColors.length)»,"«color.rgb»"«ENDFOR»]'				
 			«ENDIF»
-			«IF s.onBackGroundColor != null»
-				data-on-background-color="«s.onBackGroundColor.rgb»"		
+			«IF s.onBackgroundColors.length == 1»
+				data-on-background-color="«s.onBackgroundColors.get(0).rgb»"		
 			«ENDIF»
 			«IF s.icons.length > 1»
 				data-icons='["«s.icons.get(0)»"«FOR icon : s.icons.subList(1, s.icons.length)»,"«icon»"«ENDFOR»]'
@@ -229,25 +500,77 @@ class TabletUIDSLGenerator implements IGenerator {
 	'''
 
 	def compile(Div div) '''
-		<div class="«div.class_»">
-			«FOR w : div.widgets»
-				«w.compile»
+		<div class="«div.class_»" «IF div.style != null»style="«div.style»"«ENDIF»>
+			«FOR widget : div.widgets»
+				«IF widget instanceof Div»
+					«(widget as Div).compile»
+				«ELSE»
+					«(widget as Widget).compile»	
+				«ENDIF»
 			«ENDFOR»
+		</div>
+	'''
+
+	def compile(
+		Push push
+	) '''
+		<div data-type="push" «IF push.device != null»data-device="«push.device»"«ENDIF» data-icon="«push.icon»" «IF push.dataSet != null»data-set="«push.dataSet»"«ENDIF» «IF push.setOn != null»data-set-on="«push.setOn»"«ENDIF»
+		«IF push.backgroundIcon != null»data-background-icon="«push.backgroundIcon»"«ENDIF»
+		«IF push.doubleClick > 0»data-doubleclick="«push.doubleClick»"«ENDIF»
+		«IF push.countdown != null»data-countdown="«push.countdown»"«ENDIF»
+		«IF push.cmd != null»data-cmd="«push.cmd»"«ENDIF»
+		«IF push.class_ != null»class="«push.class_»"«ENDIF»
+		«IF push.url != null»data-url="«push.url»"«ENDIF»
+		>	
 		</div>
 	'''
 
 	def compile(Custom custom) '''
 		«custom.code»
 	'''
-	
-	def comnpile(org.ckr.tabletUIDSL.Switch s)'''
-		<div data-type="switch" data-device="«s.device»" «IF s.get != null»date-get="«s.get»"«ENDIF»" 
+
+	def compile(Switch s) '''
+		<div data-type="switch" data-device="«s.device»" class="«s.class_»" «IF s.get != null»date-get="«s.get»"«ENDIF» 
 			«IF s.getOn != null»data-get-on="«s.getOn»"«ENDIF» «IF s.getOff != null»data-get-off="«s.getOff»"«ENDIF»
 			«IF s.onColor != null»data-on-color="«s.onColor.rgb»"«ENDIF»
 			«IF s.offColor != null»data-off-color="«s.offColor.rgb»"«ENDIF»
 			«IF s.icon != null»data-icon="«s.icon»"«ENDIF»
-			«IF s.backgroundIcon != null»data-background-icon="«s.backgroundIcon»"«ENDIF»>
+			«IF s.backgroundIcon != null»data-background-icon="«s.backgroundIcon»"«ENDIF»
+			«IF s.onBackGroundColor != null»data-on-background-color="«s.onBackGroundColor.rgb»"«ENDIF»
+			«IF s.setOn != null»data-set-on="«s.setOn»"«ENDIF»
+			>
 		</div>
 	'''
 
+	def compile(Weather w) '''
+		<div data-type="weather" data-device="«w.device»" «IF w.get != null»data-get="«w.get»"«ENDIF»
+			«IF w.class_ != null»class="«w.class_»"«ENDIF»
+			«IF w.imageset != null»data-imageset="«w.imageset»"«ENDIF»
+			«IF w.imagePath != null»data-image-path="«w.imagePath»"«ENDIF»
+		>
+		</div>
+	'''
+
+	def compile(
+		Image image
+	) '''
+		<div data-type="image" data-device="«image.device»" data-get="«image.get»" «IF image.size != null»data-size="«image.size»"«ENDIF»
+			«IF image.class_ != null»class="«image.class_»"«ENDIF»>
+		</div>
+	'''
+
+	def compile(itunes_artwork itunes) '''
+		<div data-type="itunes_artwork" data-device="«itunes.device»"
+			«IF itunes.get.length == 1»
+				data-get="«itunes.get.get(0)»"
+			«ELSEIF itunes.get.length > 1»
+				data-get='["«itunes.get.get(0)»"«FOR get : itunes.get.subList(1,itunes.get.length)»,"«get»"«ENDFOR»]'
+			«ENDIF»
+			«IF itunes.size != null»data-size="«itunes.size»"«ENDIF»
+			«IF itunes.opacity != null»data-opacity="«itunes.opacity»"«ENDIF»
+			«IF itunes.class_ != null»class="«itunes.class_»"«ENDIF»
+			«IF itunes.style != null»style="«itunes.style»"«ENDIF»
+		>
+		</div>
+	'''
 }

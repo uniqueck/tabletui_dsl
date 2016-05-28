@@ -16,11 +16,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getDevice <em>Device</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getGet <em>Get</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getGetOn <em>Get On</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Symbol#getGetWarn <em>Get Warn</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getGetOff <em>Get Off</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getBgicon <em>Bgicon</em>}</li>
- *   <li>{@link org.ckr.tabletUIDSL.Symbol#getOnBackGroundColor <em>On Back Ground Color</em>}</li>
- *   <li>{@link org.ckr.tabletUIDSL.Symbol#getOnColor <em>On Color</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getOffColor <em>Off Color</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getIcons <em>Icons</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Symbol#getOnColors <em>On Colors</em>}</li>
@@ -102,6 +101,32 @@ public interface Symbol extends Widget
   EList<String> getGetOn();
 
   /**
+   * Returns the value of the '<em><b>Get Warn</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Get Warn</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Get Warn</em>' attribute.
+   * @see #setGetWarn(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getSymbol_GetWarn()
+   * @model
+   * @generated
+   */
+  String getGetWarn();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Symbol#getGetWarn <em>Get Warn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Get Warn</em>' attribute.
+   * @see #getGetWarn()
+   * @generated
+   */
+  void setGetWarn(String value);
+
+  /**
    * Returns the value of the '<em><b>Get Off</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
@@ -168,58 +193,6 @@ public interface Symbol extends Widget
    * @generated
    */
   void setBgicon(String value);
-
-  /**
-   * Returns the value of the '<em><b>On Back Ground Color</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>On Back Ground Color</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>On Back Ground Color</em>' reference.
-   * @see #setOnBackGroundColor(Color)
-   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getSymbol_OnBackGroundColor()
-   * @model
-   * @generated
-   */
-  Color getOnBackGroundColor();
-
-  /**
-   * Sets the value of the '{@link org.ckr.tabletUIDSL.Symbol#getOnBackGroundColor <em>On Back Ground Color</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>On Back Ground Color</em>' reference.
-   * @see #getOnBackGroundColor()
-   * @generated
-   */
-  void setOnBackGroundColor(Color value);
-
-  /**
-   * Returns the value of the '<em><b>On Color</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>On Color</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>On Color</em>' reference.
-   * @see #setOnColor(Color)
-   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getSymbol_OnColor()
-   * @model
-   * @generated
-   */
-  Color getOnColor();
-
-  /**
-   * Sets the value of the '{@link org.ckr.tabletUIDSL.Symbol#getOnColor <em>On Color</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>On Color</em>' reference.
-   * @see #getOnColor()
-   * @generated
-   */
-  void setOnColor(Color value);
 
   /**
    * Returns the value of the '<em><b>Off Color</b></em>' reference.

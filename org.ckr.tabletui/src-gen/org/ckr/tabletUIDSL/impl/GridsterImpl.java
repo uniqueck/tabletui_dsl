@@ -7,7 +7,7 @@ import java.util.Collection;
 import org.ckr.tabletUIDSL.Color;
 import org.ckr.tabletUIDSL.Gridster;
 import org.ckr.tabletUIDSL.TabletUIDSLPackage;
-import org.ckr.tabletUIDSL.Widget;
+import org.ckr.tabletUIDSL.WidgetDef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getColumn <em>Column</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getColspan <em>Colspan</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getRowspan <em>Rowspan</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getColors <em>Colors</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.GridsterImpl#getWidgets <em>Widgets</em>}</li>
  * </ul>
@@ -145,6 +147,46 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
   protected int rowspan = ROWSPAN_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClass_()
+   * @generated
+   * @ordered
+   */
+  protected static final String CLASS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClass_()
+   * @generated
+   * @ordered
+   */
+  protected String class_ = CLASS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStyle()
+   * @generated
+   * @ordered
+   */
+  protected static final String STYLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStyle()
+   * @generated
+   * @ordered
+   */
+  protected String style = STYLE_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getColors() <em>Colors</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -162,7 +204,7 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
    * @generated
    * @ordered
    */
-  protected EList<Widget> widgets;
+  protected EList<WidgetDef> widgets;
 
   /**
    * <!-- begin-user-doc -->
@@ -305,6 +347,52 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getClass_()
+  {
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setClass(String newClass)
+  {
+    String oldClass = class_;
+    class_ = newClass;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.GRIDSTER__CLASS, oldClass, class_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getStyle()
+  {
+    return style;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStyle(String newStyle)
+  {
+    String oldStyle = style;
+    style = newStyle;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.GRIDSTER__STYLE, oldStyle, style));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Color> getColors()
   {
     if (colors == null)
@@ -319,11 +407,11 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Widget> getWidgets()
+  public EList<WidgetDef> getWidgets()
   {
     if (widgets == null)
     {
-      widgets = new EObjectContainmentEList<Widget>(Widget.class, this, TabletUIDSLPackage.GRIDSTER__WIDGETS);
+      widgets = new EObjectContainmentEList<WidgetDef>(WidgetDef.class, this, TabletUIDSLPackage.GRIDSTER__WIDGETS);
     }
     return widgets;
   }
@@ -366,6 +454,10 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
         return getColspan();
       case TabletUIDSLPackage.GRIDSTER__ROWSPAN:
         return getRowspan();
+      case TabletUIDSLPackage.GRIDSTER__CLASS:
+        return getClass_();
+      case TabletUIDSLPackage.GRIDSTER__STYLE:
+        return getStyle();
       case TabletUIDSLPackage.GRIDSTER__COLORS:
         return getColors();
       case TabletUIDSLPackage.GRIDSTER__WIDGETS:
@@ -400,13 +492,19 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
       case TabletUIDSLPackage.GRIDSTER__ROWSPAN:
         setRowspan((Integer)newValue);
         return;
+      case TabletUIDSLPackage.GRIDSTER__CLASS:
+        setClass((String)newValue);
+        return;
+      case TabletUIDSLPackage.GRIDSTER__STYLE:
+        setStyle((String)newValue);
+        return;
       case TabletUIDSLPackage.GRIDSTER__COLORS:
         getColors().clear();
         getColors().addAll((Collection<? extends Color>)newValue);
         return;
       case TabletUIDSLPackage.GRIDSTER__WIDGETS:
         getWidgets().clear();
-        getWidgets().addAll((Collection<? extends Widget>)newValue);
+        getWidgets().addAll((Collection<? extends WidgetDef>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -436,6 +534,12 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
         return;
       case TabletUIDSLPackage.GRIDSTER__ROWSPAN:
         setRowspan(ROWSPAN_EDEFAULT);
+        return;
+      case TabletUIDSLPackage.GRIDSTER__CLASS:
+        setClass(CLASS_EDEFAULT);
+        return;
+      case TabletUIDSLPackage.GRIDSTER__STYLE:
+        setStyle(STYLE_EDEFAULT);
         return;
       case TabletUIDSLPackage.GRIDSTER__COLORS:
         getColors().clear();
@@ -467,6 +571,10 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
         return colspan != COLSPAN_EDEFAULT;
       case TabletUIDSLPackage.GRIDSTER__ROWSPAN:
         return rowspan != ROWSPAN_EDEFAULT;
+      case TabletUIDSLPackage.GRIDSTER__CLASS:
+        return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+      case TabletUIDSLPackage.GRIDSTER__STYLE:
+        return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
       case TabletUIDSLPackage.GRIDSTER__COLORS:
         return colors != null && !colors.isEmpty();
       case TabletUIDSLPackage.GRIDSTER__WIDGETS:
@@ -496,6 +604,10 @@ public class GridsterImpl extends MinimalEObjectImpl.Container implements Gridst
     result.append(colspan);
     result.append(", rowspan: ");
     result.append(rowspan);
+    result.append(", class: ");
+    result.append(class_);
+    result.append(", style: ");
+    result.append(style);
     result.append(')');
     return result.toString();
   }

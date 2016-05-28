@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ckr.tabletUIDSL.Gridster#getColumn <em>Column</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Gridster#getColspan <em>Colspan</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Gridster#getRowspan <em>Rowspan</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Gridster#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Gridster#getStyle <em>Style</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Gridster#getColors <em>Colors</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Gridster#getWidgets <em>Widgets</em>}</li>
  * </ul>
@@ -161,6 +163,58 @@ public interface Gridster extends EObject
   void setRowspan(int value);
 
   /**
+   * Returns the value of the '<em><b>Class</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Class</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Class</em>' attribute.
+   * @see #setClass(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getGridster_Class()
+   * @model
+   * @generated
+   */
+  String getClass_();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Gridster#getClass_ <em>Class</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Class</em>' attribute.
+   * @see #getClass_()
+   * @generated
+   */
+  void setClass(String value);
+
+  /**
+   * Returns the value of the '<em><b>Style</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Style</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Style</em>' attribute.
+   * @see #setStyle(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getGridster_Style()
+   * @model
+   * @generated
+   */
+  String getStyle();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Gridster#getStyle <em>Style</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Style</em>' attribute.
+   * @see #getStyle()
+   * @generated
+   */
+  void setStyle(String value);
+
+  /**
    * Returns the value of the '<em><b>Colors</b></em>' containment reference list.
    * The list contents are of type {@link org.ckr.tabletUIDSL.Color}.
    * <!-- begin-user-doc -->
@@ -178,7 +232,7 @@ public interface Gridster extends EObject
 
   /**
    * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.
-   * The list contents are of type {@link org.ckr.tabletUIDSL.Widget}.
+   * The list contents are of type {@link org.ckr.tabletUIDSL.WidgetDef}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Widgets</em>' containment reference list isn't clear,
@@ -190,6 +244,6 @@ public interface Gridster extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Widget> getWidgets();
+  EList<WidgetDef> getWidgets();
 
 } // Gridster

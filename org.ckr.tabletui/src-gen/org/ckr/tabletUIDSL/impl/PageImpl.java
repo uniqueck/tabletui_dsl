@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.ckr.tabletUIDSL.Gridster;
 import org.ckr.tabletUIDSL.Page;
+import org.ckr.tabletUIDSL.Screensaver;
 import org.ckr.tabletUIDSL.TabletUIDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.ckr.tabletUIDSL.impl.PageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.PageImpl#getScreensaver <em>Screensaver</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.PageImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -38,24 +39,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class PageImpl extends AbstractElementImpl implements Page
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getScreensaver() <em>Screensaver</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getScreensaver()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Screensaver screensaver;
 
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -93,9 +84,19 @@ public class PageImpl extends AbstractElementImpl implements Page
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Screensaver getScreensaver()
   {
-    return name;
+    if (screensaver != null && screensaver.eIsProxy())
+    {
+      InternalEObject oldScreensaver = (InternalEObject)screensaver;
+      screensaver = (Screensaver)eResolveProxy(oldScreensaver);
+      if (screensaver != oldScreensaver)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, TabletUIDSLPackage.PAGE__SCREENSAVER, oldScreensaver, screensaver));
+      }
+    }
+    return screensaver;
   }
 
   /**
@@ -103,12 +104,22 @@ public class PageImpl extends AbstractElementImpl implements Page
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public Screensaver basicGetScreensaver()
   {
-    String oldName = name;
-    name = newName;
+    return screensaver;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setScreensaver(Screensaver newScreensaver)
+  {
+    Screensaver oldScreensaver = screensaver;
+    screensaver = newScreensaver;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.PAGE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.PAGE__SCREENSAVER, oldScreensaver, screensaver));
   }
 
   /**
@@ -151,8 +162,9 @@ public class PageImpl extends AbstractElementImpl implements Page
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.PAGE__NAME:
-        return getName();
+      case TabletUIDSLPackage.PAGE__SCREENSAVER:
+        if (resolve) return getScreensaver();
+        return basicGetScreensaver();
       case TabletUIDSLPackage.PAGE__ELEMENTS:
         return getElements();
     }
@@ -170,8 +182,8 @@ public class PageImpl extends AbstractElementImpl implements Page
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.PAGE__NAME:
-        setName((String)newValue);
+      case TabletUIDSLPackage.PAGE__SCREENSAVER:
+        setScreensaver((Screensaver)newValue);
         return;
       case TabletUIDSLPackage.PAGE__ELEMENTS:
         getElements().clear();
@@ -191,8 +203,8 @@ public class PageImpl extends AbstractElementImpl implements Page
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.PAGE__NAME:
-        setName(NAME_EDEFAULT);
+      case TabletUIDSLPackage.PAGE__SCREENSAVER:
+        setScreensaver((Screensaver)null);
         return;
       case TabletUIDSLPackage.PAGE__ELEMENTS:
         getElements().clear();
@@ -211,29 +223,12 @@ public class PageImpl extends AbstractElementImpl implements Page
   {
     switch (featureID)
     {
-      case TabletUIDSLPackage.PAGE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case TabletUIDSLPackage.PAGE__SCREENSAVER:
+        return screensaver != null;
       case TabletUIDSLPackage.PAGE__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //PageImpl

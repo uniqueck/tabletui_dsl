@@ -21,16 +21,66 @@ Settings:
 	(settings += SettingsElement)*
 ;
 
+
 SettingsElement:
 	CSS | Color
 ;
 
 CSS:
 	'css' path = STRING
+	// (rules += CSSRule)?
 ;
 
+//CSSRule:
+//	'rule' name = ID
+//		(rules += CSSRule)*
+//		(
+//			properties += PropertyDeclaration (';' declarations+=PropertyDeclaration)* (';')?
+//		)?
+//;
+//
+//PropertyDeclaration:
+//	KnownPropertyDeclaration | UnrecognizedPropertyDeclaration
+//	;
+//
+//KnownPropertyDeclaration:
+//	name=KnownProperties ':' valuesLists=PropertyValuesLists
+//;
+//
+//UnrecognizedPropertyDeclaration:
+//	name=PropertyName ':' valuesLists=PropertyValuesLists
+//;
+//
+//PropertyName:
+//	IDENT | 'empty' | 'alpha'		// TODO  add other keywords here (possibly through generation)
+//;
+//	
+//PropertyValuesLists:
+//	lists+=PropertyValuesList (',' lists+=PropertyValuesList)*
+//	;
+//
+//PropertyValuesList:
+//	values+=PropertyValue+
+//	;
+//
+//PropertyValue hidden(WS):
+//	value= STRING important?='!important'?
+//	;
+//
+//enum KnownProperties:
+//	color | border_top='border-top' // | ..
+//	;
+//
+//terminal IDENT: ID_START ID_PART* ;
+//
+//terminal fragment ID_PART: ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9') ;
+//
+//terminal fragment ID_START: PREFIXABLE_ID_START | '-';
+//
+//terminal fragment PREFIXABLE_ID_START: ('a'..'z'|'A'..'Z'|'_') ;
+
 AbstractElement:
-	Page
+	Page | Template | Screensaver
 ;
 
 BOOL: 
@@ -38,7 +88,22 @@ BOOL:
 ;
 Page:
 	name = ID '{'
+	('screensaver' screensaver = [Screensaver])?
 	(elements += Gridster)*
+	'}'
+;
+
+Screensaver:
+	'screensaver'
+	'{'
+		name = ID
+		(widgets += WidgetDef)*		
+	'}'
+;
+
+Template:
+	name = ID 'template' '{'
+		(elements += Div)*	
 	'}'
 ;
 
@@ -49,13 +114,99 @@ Gridster:
 	'column' column = INT
 	('colspan' colspan = INT)?
 	('rowspan' rowspan = INT)?
+	('class' class = STRING)?
+	('style' style = STRING)?
 	(colors += Color)*
-	(widgets += Widget)*
+	(widgets += WidgetDef)*
 	'}'
 ;
 
+WidgetDef:
+	Div | Widget
+;
+
 Widget:
-	(Switch | Button | Label | SimpleClock | Symbol | Calview | SimpleChart | Custom | Div)
+	Switch | Button | Label | SimpleClock | Symbol | Calview | SimpleChart | Custom | Weather | Klimatrend | itunes_artwork | Image | Push | Volume | Select | TemplateRef | Swiper | Popup | Link | Clock
+;
+
+Clock:
+	'clock'
+	'{'
+		'format' format = STRING
+		'class' class = STRING
+		('style' style = STRING)?
+		('interval' interval = INT)?
+		('days' days += STRING)?
+		('shortday-length' shortdayLength = INT)?
+		('months' month += STRING)?
+		('shortmonth-length' monthLength = INT)?		
+	'}'
+;
+
+Swiper:
+	'swiper'
+	'{'
+		'width' width = STRING
+		'height' height = STRING
+		('autoplay' autoplay = INT)?
+		('class' class = STRING)?
+		(divs += Div)*
+	'}'
+;
+
+TemplateRef:
+	'template-ref' template += Template
+;
+
+Select:
+	'select'
+	'{'
+		device = STRING
+		('list' list = STRING)?
+		('items' items = STRING)?
+		('alias' alias = STRING)?
+		('cmd' cmd = STRING)?
+		('quote' quote = STRING)?		
+		('get' get = STRING)?
+		('set' set = STRING)?
+		('class' class = STRING)?		
+	'}'
+;
+
+Volume:
+	'volume'
+	'{'
+		device = STRING
+		('get' get = STRING)?
+		'set' set = STRING
+		('cmd' cmd = STRING)?
+		('min' min = STRING)?
+		('max' max = STRING)?
+		('class' class = STRING)?		
+	'}'
+;
+
+Push:
+	'push'
+	'{'
+		(device = STRING)?
+		('set' dataSet = STRING)?
+		('set-on' setOn = STRING)?
+		'icon' icon = STRING
+		('background-icon' backgroundIcon = STRING)?
+		('cmd' cmd = STRING)?
+		('doubleClick' doubleClick = INT)?
+		('countdown' countdown = STRING)?
+		('class' class = STRING)?
+		('url' url = STRING)?
+	'}'
+;
+
+Image:
+	'image' device = STRING
+		'get' get = STRING
+		'size' size = STRING
+		('class' class = STRING)?
 ;
 
 Switch:
@@ -64,6 +215,7 @@ Switch:
 		device = STRING
 		('get' get = STRING)?
 		('getOn' getOn = STRING)?
+		('setOn' setOn = STRING)?
 		('getOff' getOff = STRING)?
 		('class' class = STRING)?
 		('onColor' onColor = [Color])?
@@ -75,17 +227,48 @@ Switch:
 ;
 
 Custom:
+	'custom'
 	'{'
 		code = STRING
 	'}'
 ;
 
+
+
 Div:
 	'div' 
 	'{'
-		'class' class = STRING
-		(widgets += Widget)*
+		('class' class = STRING)?
+		('style' style = STRING)?
+		(widgets += WidgetDef)*
 	'}'	
+;
+
+itunes_artwork:
+	'itunes_artwork'
+	'{'
+		device = STRING
+		'get' (get += STRING)*
+		('opacity' opacity = STRING)?
+		('size' size = STRING)?
+		('class' class = STRING)?
+		('style' style = STRING)?
+	'}'
+;
+
+Weather:
+	'weather'
+	'{'
+		device = STRING
+		('get' get = STRING)?
+		('class' class = STRING)?
+		('imageset' imageset = WeatherImageSet)?
+		('image-path' imagePath = STRING)?
+	'}'
+;
+
+WeatherImageSet:
+	'meteocons' | 'kleinklima' | 'reading'
 ;
 
 Calview:
@@ -101,17 +284,76 @@ Calview:
 ;
 
 
+Popup:
+	'popup'
+	'{'
+		('width' width = STRING)?
+		('height' height = STRING)?
+		'openIcon' openIcon = STRING
+		('openBackgroundIcon' openBackgroundIcon = STRING)?
+		('openClass' openClass = STRING)?
+		('dialogClass' dialogClass = STRING)?
+		('dialogHeaderClass' dialogHeaderClass = STRING)?
+		('header' header = STRING)?
+		(widgets += Widget)*		
+	'}'
+;
+
+Link:
+	'link'
+	'{'
+		('width' width = STRING)?
+		('height' height = STRING)?
+		('color' color = [Color])?
+		('class' class = STRING)?
+		('backgroundColor' backgroundColor = [Color])?
+		'icon' icon = STRING
+		'cmd' cmd = STRING
+		'label' label = STRING		
+	'}'
+;
+
+ButtonUrl:
+	('url' url = STRING | 'page' page = [Page] | 'fhem-cmd' fhemCmd = STRING)
+;
+
 Button:
 	'button' 
 	'{'
-		('url' url = [Page])?
+		(device = STRING )?
+		('get' get = STRING)?
+		('getOn' getOn = STRING )?
+		('getWarn' getWarn = STRING )?
+		('getOff' getOff = STRING)?
+		target = ButtonUrl
 		'icon' icon = STRING
+		('background-icon' backgroundIcon = STRING)?
 		'class' class = STRING
-		('color' color = [Color])?
-		('background-color' backgroundColor = [Color])?
+		('on-color' onColor = [Color])?
+		('on-background-color' onBackgroundColor = [Color])?
+		('off-color' offColor = [Color])?
+		('off-background-color' offBackgroundColor = [Color])?
 	'}'		
 ;
 
+
+Klimatrend:
+	'klimatrend'
+	'{'
+		device = STRING
+		'get' get = STRING
+		('class' class = STRING)? 
+		'refperiod' refperiod = INT
+		('stagnatingColor' stagnatingColor = [Color])?
+		('icon' icon = STRING)?
+		('risingColor' risingColor = [Color])?
+		('fallingColor' fallingColor = [Color])?
+		('highmark' highmark = INT)?
+		('highmarkIcon' highmarkIcon = STRING)?
+		('highmarkRisingColor' highmarkRisingColor = [Color])?
+		('highmarkFallingColor' highmarkFallingColor = [Color])?	
+	'}'
+;
 
 
 Symbol: 
@@ -119,24 +361,14 @@ Symbol:
 	device = STRING
 	'get' get = STRING
 	'getOn' (getOn += STRING)*
+	('getWarn' getWarn = STRING)?
 	('getOff' (getOff += STRING)*)?
 	('class' class = STRING)?
 	('background-icon' bgicon = STRING)?
-	('background-on-color' onBackGroundColor = [Color])?
-	('on-color' onColor = [Color])?
 	('off-color' offColor = [Color])?
-	('icons'
-		'[' 
-			(icons += STRING)*
-		']')?
-	('onColors'
-		'[' 
-			(onColors += [Color])*
-		']')?
-	('onBackgroundColors'
-		'[' 
-			(onBackgroundColors += [Color])*
-		']')?
+	('icons' (icons += STRING)*)?
+	('onColors' (onColors += [Color])*)?
+	('onBackgroundColors' (onBackgroundColors += [Color])*)?
 	'}'
 ;
 
@@ -178,6 +410,10 @@ Label:
 	 '{'
 		device = STRING
 		'get' get = STRING
-		'class' class = STRING
+		('class' class = STRING)?
+		('style' style = STRING)?
+		('unit' unit = STRING)?
+		('part' part = STRING)?
+		('substitution' substitution = STRING)?
 	 '}'
 ;

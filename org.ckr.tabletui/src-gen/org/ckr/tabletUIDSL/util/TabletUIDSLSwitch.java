@@ -116,6 +116,22 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TabletUIDSLPackage.SCREENSAVER:
+      {
+        Screensaver screensaver = (Screensaver)theEObject;
+        T result = caseScreensaver(screensaver);
+        if (result == null) result = caseAbstractElement(screensaver);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.TEMPLATE:
+      {
+        Template template = (Template)theEObject;
+        T result = caseTemplate(template);
+        if (result == null) result = caseAbstractElement(template);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TabletUIDSLPackage.GRIDSTER:
       {
         Gridster gridster = (Gridster)theEObject;
@@ -123,10 +139,81 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TabletUIDSLPackage.WIDGET_DEF:
+      {
+        WidgetDef widgetDef = (WidgetDef)theEObject;
+        T result = caseWidgetDef(widgetDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TabletUIDSLPackage.WIDGET:
       {
         Widget widget = (Widget)theEObject;
         T result = caseWidget(widget);
+        if (result == null) result = caseWidgetDef(widget);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.CLOCK:
+      {
+        Clock clock = (Clock)theEObject;
+        T result = caseClock(clock);
+        if (result == null) result = caseWidget(clock);
+        if (result == null) result = caseWidgetDef(clock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.SWIPER:
+      {
+        Swiper swiper = (Swiper)theEObject;
+        T result = caseSwiper(swiper);
+        if (result == null) result = caseWidget(swiper);
+        if (result == null) result = caseWidgetDef(swiper);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.TEMPLATE_REF:
+      {
+        TemplateRef templateRef = (TemplateRef)theEObject;
+        T result = caseTemplateRef(templateRef);
+        if (result == null) result = caseWidget(templateRef);
+        if (result == null) result = caseWidgetDef(templateRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.SELECT:
+      {
+        Select select = (Select)theEObject;
+        T result = caseSelect(select);
+        if (result == null) result = caseWidget(select);
+        if (result == null) result = caseWidgetDef(select);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.VOLUME:
+      {
+        Volume volume = (Volume)theEObject;
+        T result = caseVolume(volume);
+        if (result == null) result = caseWidget(volume);
+        if (result == null) result = caseWidgetDef(volume);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.PUSH:
+      {
+        Push push = (Push)theEObject;
+        T result = casePush(push);
+        if (result == null) result = caseWidget(push);
+        if (result == null) result = caseWidgetDef(push);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.IMAGE:
+      {
+        Image image = (Image)theEObject;
+        T result = caseImage(image);
+        if (result == null) result = caseWidget(image);
+        if (result == null) result = caseWidgetDef(image);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -135,6 +222,7 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         org.ckr.tabletUIDSL.Switch switch_ = (org.ckr.tabletUIDSL.Switch)theEObject;
         T result = caseSwitch(switch_);
         if (result == null) result = caseWidget(switch_);
+        if (result == null) result = caseWidgetDef(switch_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -143,6 +231,7 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         Custom custom = (Custom)theEObject;
         T result = caseCustom(custom);
         if (result == null) result = caseWidget(custom);
+        if (result == null) result = caseWidgetDef(custom);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,7 +239,25 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
       {
         Div div = (Div)theEObject;
         T result = caseDiv(div);
-        if (result == null) result = caseWidget(div);
+        if (result == null) result = caseWidgetDef(div);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.ITUNES_ARTWORK:
+      {
+        itunes_artwork itunes_artwork = (itunes_artwork)theEObject;
+        T result = caseitunes_artwork(itunes_artwork);
+        if (result == null) result = caseWidget(itunes_artwork);
+        if (result == null) result = caseWidgetDef(itunes_artwork);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.WEATHER:
+      {
+        Weather weather = (Weather)theEObject;
+        T result = caseWeather(weather);
+        if (result == null) result = caseWidget(weather);
+        if (result == null) result = caseWidgetDef(weather);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -159,6 +266,32 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         Calview calview = (Calview)theEObject;
         T result = caseCalview(calview);
         if (result == null) result = caseWidget(calview);
+        if (result == null) result = caseWidgetDef(calview);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.POPUP:
+      {
+        Popup popup = (Popup)theEObject;
+        T result = casePopup(popup);
+        if (result == null) result = caseWidget(popup);
+        if (result == null) result = caseWidgetDef(popup);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.LINK:
+      {
+        Link link = (Link)theEObject;
+        T result = caseLink(link);
+        if (result == null) result = caseWidget(link);
+        if (result == null) result = caseWidgetDef(link);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.BUTTON_URL:
+      {
+        ButtonUrl buttonUrl = (ButtonUrl)theEObject;
+        T result = caseButtonUrl(buttonUrl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,6 +300,16 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         Button button = (Button)theEObject;
         T result = caseButton(button);
         if (result == null) result = caseWidget(button);
+        if (result == null) result = caseWidgetDef(button);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TabletUIDSLPackage.KLIMATREND:
+      {
+        Klimatrend klimatrend = (Klimatrend)theEObject;
+        T result = caseKlimatrend(klimatrend);
+        if (result == null) result = caseWidget(klimatrend);
+        if (result == null) result = caseWidgetDef(klimatrend);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -175,6 +318,7 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         Symbol symbol = (Symbol)theEObject;
         T result = caseSymbol(symbol);
         if (result == null) result = caseWidget(symbol);
+        if (result == null) result = caseWidgetDef(symbol);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,6 +327,7 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         SimpleClock simpleClock = (SimpleClock)theEObject;
         T result = caseSimpleClock(simpleClock);
         if (result == null) result = caseWidget(simpleClock);
+        if (result == null) result = caseWidgetDef(simpleClock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -191,6 +336,7 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         SimpleChart simpleChart = (SimpleChart)theEObject;
         T result = caseSimpleChart(simpleChart);
         if (result == null) result = caseWidget(simpleChart);
+        if (result == null) result = caseWidgetDef(simpleChart);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -207,6 +353,7 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
         Label label = (Label)theEObject;
         T result = caseLabel(label);
         if (result == null) result = caseWidget(label);
+        if (result == null) result = caseWidgetDef(label);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -311,6 +458,38 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Screensaver</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Screensaver</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScreensaver(Screensaver object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Template</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Template</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTemplate(Template object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Gridster</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -327,6 +506,22 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Widget Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Widget Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWidgetDef(WidgetDef object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Widget</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -338,6 +533,118 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWidget(Widget object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Clock</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Clock</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClock(Clock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Swiper</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Swiper</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSwiper(Swiper object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Template Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Template Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTemplateRef(TemplateRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Select</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Select</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelect(Select object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Volume</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Volume</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVolume(Volume object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Push</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Push</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePush(Push object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImage(Image object)
   {
     return null;
   }
@@ -391,6 +698,38 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>itunes artwork</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>itunes artwork</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseitunes_artwork(itunes_artwork object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Weather</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Weather</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWeather(Weather object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Calview</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -407,6 +746,54 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Popup</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Popup</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePopup(Popup object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLink(Link object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Button Url</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Button Url</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseButtonUrl(ButtonUrl object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -418,6 +805,22 @@ public class TabletUIDSLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseButton(Button object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Klimatrend</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Klimatrend</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseKlimatrend(Klimatrend object)
   {
     return null;
   }

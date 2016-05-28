@@ -27,10 +27,18 @@
     <genClasses ecoreClass="TabletUIDSL.ecore#//CSS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//CSS/path"/>
     </genClasses>
-    <genClasses ecoreClass="TabletUIDSL.ecore#//AbstractElement"/>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//AbstractElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//AbstractElement/name"/>
+    </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Page">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Page/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Page/screensaver"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Page/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Screensaver">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Screensaver/widgets"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Template">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Template/elements"/>
     </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Gridster">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Gridster/header"/>
@@ -38,14 +46,76 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Gridster/column"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Gridster/colspan"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Gridster/rowspan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Gridster/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Gridster/style"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Gridster/colors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Gridster/widgets"/>
     </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//WidgetDef"/>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Widget"/>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Clock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/style"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/interval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/days"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/shortdayLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Clock/monthLength"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Swiper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Swiper/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Swiper/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Swiper/autoplay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Swiper/class"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Swiper/divs"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//TemplateRef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//TemplateRef/template"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Select">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/items"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/cmd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/quote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/set"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Select/class"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Volume">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/set"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/cmd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Volume/class"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Push">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/dataSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/setOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/icon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/backgroundIcon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/cmd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/doubleClick"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/countdown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Push/url"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Image/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Image/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Image/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Image/class"/>
+    </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Switch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Switch/device"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Switch/get"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Switch/getOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Switch/setOn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Switch/getOff"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Switch/class"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Switch/onColor"/>
@@ -59,7 +129,23 @@
     </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Div">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Div/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Div/style"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Div/widgets"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//itunes_artwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//itunes_artwork/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//itunes_artwork/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//itunes_artwork/opacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//itunes_artwork/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//itunes_artwork/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//itunes_artwork/style"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Weather">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Weather/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Weather/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Weather/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Weather/imageset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Weather/imagePath"/>
     </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Calview">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Calview/device"/>
@@ -69,22 +155,69 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Calview/allFC"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Calview/allTC"/>
     </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Popup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/openIcon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/openBackgroundIcon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/openClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/dialogClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/dialogHeaderClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Popup/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Popup/widgets"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Link/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Link/height"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Link/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Link/class"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Link/backgroundColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Link/icon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Link/cmd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Link/label"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//ButtonUrl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//ButtonUrl/url"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//ButtonUrl/page"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//ButtonUrl/fhemCmd"/>
+    </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Button">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/getOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/getWarn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/getOff"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/icon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/backgroundIcon"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Button/class"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/color"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/backgroundColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/onColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/onBackgroundColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/offColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Button/offBackgroundColor"/>
+    </genClasses>
+    <genClasses ecoreClass="TabletUIDSL.ecore#//Klimatrend">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/get"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/refperiod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Klimatrend/stagnatingColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/icon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Klimatrend/risingColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Klimatrend/fallingColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/highmark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Klimatrend/highmarkIcon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Klimatrend/highmarkRisingColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Klimatrend/highmarkFallingColor"/>
     </genClasses>
     <genClasses ecoreClass="TabletUIDSL.ecore#//Symbol">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/device"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/get"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/getOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/getWarn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/getOff"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/class"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/bgicon"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Symbol/onBackGroundColor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Symbol/onColor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Symbol/offColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Symbol/icons"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TabletUIDSL.ecore#//Symbol/onColors"/>
@@ -120,6 +253,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/device"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/get"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/style"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/part"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TabletUIDSL.ecore#//Label/substitution"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

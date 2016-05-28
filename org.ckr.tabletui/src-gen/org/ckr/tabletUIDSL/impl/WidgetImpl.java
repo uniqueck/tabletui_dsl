@@ -7,8 +7,6 @@ import org.ckr.tabletUIDSL.Widget;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Widget</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class WidgetImpl extends MinimalEObjectImpl.Container implements Widget
+public class WidgetImpl extends WidgetDefImpl implements Widget
 {
   /**
    * <!-- begin-user-doc -->

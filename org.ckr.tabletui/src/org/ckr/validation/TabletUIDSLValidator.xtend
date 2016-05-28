@@ -34,7 +34,7 @@ class TabletUIDSLValidator extends AbstractTabletUIDSLValidator {
 	def checkUniquePageIds(Page page) {
 		for (Page eachPage : (page.eContainer as TabletUI).elements.filter(Page)) {
 			if (!page.equals(eachPage) && page.name.equals(eachPage.name)) {
-				error("Name der Page muss unique sein", TabletUIDSLPackage.Literals.PAGE__NAME);
+				error("Name der Page muss unique sein", TabletUIDSLPackage.Literals.ABSTRACT_ELEMENT__NAME);
 			}
 		}
 	}
@@ -71,11 +71,12 @@ class TabletUIDSLValidator extends AbstractTabletUIDSLValidator {
 
 	public static val INVALID_BUTTON_URL = 'invalid_Button_Url'
 	
+	// TODO FixMe
 	@Check
 	def checkButtonTargetURL(Button button) {
-		if ((((button.eContainer as Gridster).eContainer as Page).eContainer as TabletUI).elements.filter(Page).filter[name == button.url.name].length == 0) {
-			warning("Zieladresse "+ button.url + ".html existiert nicht.",button, TabletUIDSLPackage.Literals.BUTTON__URL, INVALID_BUTTON_URL);	
-		}		
+//		if ((((button.eContainer as Gridster).eContainer as Page).eContainer as TabletUI).elements.filter(Page).filter[name == button.url.name].length == 0) {
+//			warning("Zieladresse "+ button.url + ".html existiert nicht.",button, TabletUIDSLPackage.Literals.BUTTON__URL, INVALID_BUTTON_URL);	
+//		}		
 	}
 	
 

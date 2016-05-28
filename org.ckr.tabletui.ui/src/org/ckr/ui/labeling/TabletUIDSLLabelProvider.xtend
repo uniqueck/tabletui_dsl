@@ -7,10 +7,13 @@ import com.google.inject.Inject
 import org.ckr.tabletUIDSL.Button
 import org.ckr.tabletUIDSL.Color
 import org.ckr.tabletUIDSL.Gridster
+import org.ckr.tabletUIDSL.Link
 import org.ckr.tabletUIDSL.Page
+import org.ckr.tabletUIDSL.Push
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import org.eclipse.swt.graphics.Image
+import org.ckr.tabletUIDSL.SimpleChart
+import org.ckr.tabletUIDSL.ButtonUrl
 
 /**
  * Provides labels for EObjects.
@@ -24,6 +27,8 @@ class TabletUIDSLLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
+	
+
 	// Labels and icons can be computed like this:
 	
 //	def text(Greeting ele) {
@@ -35,10 +40,12 @@ class TabletUIDSLLabelProvider extends DefaultEObjectLabelProvider {
 //	}
 
 	def text(Button button) {
-		if (button.url != null) {
-			'Button [url = ' + (button.url as Page).name + "]";			
+		if (button.target.page != null) {
+			'Button [url = ' + (button.target.page as Page).name + "]";			
+		} else if (button.target.fhemCmd != null) {
+			'Button [fhemCmd = ' + button.target.fhemCmd + ']';
 		} else {
-			'Button'
+			'Button [url = ' + button.target.url + ']';
 		}
 	}
 	
@@ -46,8 +53,30 @@ class TabletUIDSLLabelProvider extends DefaultEObjectLabelProvider {
 //		new Image()color.rgb
 //	}
 
+
+	def text(SimpleChart simpleChart) {
+		'SimpleChart[device=' + simpleChart.device  + ']' 
+	}
 	
 	
+
+	def text(Push push) {
+		if (push.cmd != null && push.device != null && push.url == null) {
+			'Push[device=' +  push.device + ' cmd=' push.cmd ']'
+		} else if (push.cmd == null && push.device == null && push.url != null) {
+			'Push[url='+ push.url+']'
+		} else {
+			'Push'
+		}
+	}
+	
+	def text(Link link) {
+		if (link.label != null) {
+			link.label + '[cmd=' + link.cmd + ']'
+		} else  {
+			'Link[cmd=' + link.cmd  + ']' 
+		}
+	}
 	
 	def text(Color color) {
 		'Color[' +  color.name + "=" + color.rgb + ']'

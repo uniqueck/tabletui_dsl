@@ -21,5 +21,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.ckr.ui.quickfix,
  org.ckr.ui.contentassist,
  org.ckr.ui.internal,
- org.ckr.ui.contentassist.antlr
+ org.ckr.ui.contentassist.antlr,
+ org.ckr.ui.contentassist.antlr.internal
 Bundle-Activator: org.ckr.ui.internal.TabletUIDSLActivator

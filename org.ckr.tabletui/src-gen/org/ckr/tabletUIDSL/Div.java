@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.ckr.tabletUIDSL.Div#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.Div#getStyle <em>Style</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.Div#getWidgets <em>Widgets</em>}</li>
  * </ul>
  *
@@ -21,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Div extends Widget
+public interface Div extends WidgetDef
 {
   /**
    * Returns the value of the '<em><b>Class</b></em>' attribute.
@@ -50,8 +51,34 @@ public interface Div extends Widget
   void setClass(String value);
 
   /**
+   * Returns the value of the '<em><b>Style</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Style</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Style</em>' attribute.
+   * @see #setStyle(String)
+   * @see org.ckr.tabletUIDSL.TabletUIDSLPackage#getDiv_Style()
+   * @model
+   * @generated
+   */
+  String getStyle();
+
+  /**
+   * Sets the value of the '{@link org.ckr.tabletUIDSL.Div#getStyle <em>Style</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Style</em>' attribute.
+   * @see #getStyle()
+   * @generated
+   */
+  void setStyle(String value);
+
+  /**
    * Returns the value of the '<em><b>Widgets</b></em>' containment reference list.
-   * The list contents are of type {@link org.ckr.tabletUIDSL.Widget}.
+   * The list contents are of type {@link org.ckr.tabletUIDSL.WidgetDef}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Widgets</em>' containment reference list isn't clear,
@@ -63,6 +90,6 @@ public interface Div extends Widget
    * @model containment="true"
    * @generated
    */
-  EList<Widget> getWidgets();
+  EList<WidgetDef> getWidgets();
 
 } // Div

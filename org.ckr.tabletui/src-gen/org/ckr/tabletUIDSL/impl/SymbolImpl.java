@@ -31,11 +31,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getGet <em>Get</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getGetOn <em>Get On</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getGetWarn <em>Get Warn</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getGetOff <em>Get Off</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getBgicon <em>Bgicon</em>}</li>
- *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getOnBackGroundColor <em>On Back Ground Color</em>}</li>
- *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getOnColor <em>On Color</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getOffColor <em>Off Color</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getIcons <em>Icons</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SymbolImpl#getOnColors <em>On Colors</em>}</li>
@@ -97,6 +96,26 @@ public class SymbolImpl extends WidgetImpl implements Symbol
   protected EList<String> getOn;
 
   /**
+   * The default value of the '{@link #getGetWarn() <em>Get Warn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGetWarn()
+   * @generated
+   * @ordered
+   */
+  protected static final String GET_WARN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getGetWarn() <em>Get Warn</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGetWarn()
+   * @generated
+   * @ordered
+   */
+  protected String getWarn = GET_WARN_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getGetOff() <em>Get Off</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -145,26 +164,6 @@ public class SymbolImpl extends WidgetImpl implements Symbol
    * @ordered
    */
   protected String bgicon = BGICON_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getOnBackGroundColor() <em>On Back Ground Color</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOnBackGroundColor()
-   * @generated
-   * @ordered
-   */
-  protected Color onBackGroundColor;
-
-  /**
-   * The cached value of the '{@link #getOnColor() <em>On Color</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOnColor()
-   * @generated
-   * @ordered
-   */
-  protected Color onColor;
 
   /**
    * The cached value of the '{@link #getOffColor() <em>Off Color</em>}' reference.
@@ -292,6 +291,29 @@ public class SymbolImpl extends WidgetImpl implements Symbol
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getGetWarn()
+  {
+    return getWarn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGetWarn(String newGetWarn)
+  {
+    String oldGetWarn = getWarn;
+    getWarn = newGetWarn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.SYMBOL__GET_WARN, oldGetWarn, getWarn));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<String> getGetOff()
   {
     if (getOff == null)
@@ -345,92 +367,6 @@ public class SymbolImpl extends WidgetImpl implements Symbol
     bgicon = newBgicon;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.SYMBOL__BGICON, oldBgicon, bgicon));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Color getOnBackGroundColor()
-  {
-    if (onBackGroundColor != null && onBackGroundColor.eIsProxy())
-    {
-      InternalEObject oldOnBackGroundColor = (InternalEObject)onBackGroundColor;
-      onBackGroundColor = (Color)eResolveProxy(oldOnBackGroundColor);
-      if (onBackGroundColor != oldOnBackGroundColor)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, TabletUIDSLPackage.SYMBOL__ON_BACK_GROUND_COLOR, oldOnBackGroundColor, onBackGroundColor));
-      }
-    }
-    return onBackGroundColor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Color basicGetOnBackGroundColor()
-  {
-    return onBackGroundColor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOnBackGroundColor(Color newOnBackGroundColor)
-  {
-    Color oldOnBackGroundColor = onBackGroundColor;
-    onBackGroundColor = newOnBackGroundColor;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.SYMBOL__ON_BACK_GROUND_COLOR, oldOnBackGroundColor, onBackGroundColor));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Color getOnColor()
-  {
-    if (onColor != null && onColor.eIsProxy())
-    {
-      InternalEObject oldOnColor = (InternalEObject)onColor;
-      onColor = (Color)eResolveProxy(oldOnColor);
-      if (onColor != oldOnColor)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, TabletUIDSLPackage.SYMBOL__ON_COLOR, oldOnColor, onColor));
-      }
-    }
-    return onColor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Color basicGetOnColor()
-  {
-    return onColor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOnColor(Color newOnColor)
-  {
-    Color oldOnColor = onColor;
-    onColor = newOnColor;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.SYMBOL__ON_COLOR, oldOnColor, onColor));
   }
 
   /**
@@ -534,18 +470,14 @@ public class SymbolImpl extends WidgetImpl implements Symbol
         return getGet();
       case TabletUIDSLPackage.SYMBOL__GET_ON:
         return getGetOn();
+      case TabletUIDSLPackage.SYMBOL__GET_WARN:
+        return getGetWarn();
       case TabletUIDSLPackage.SYMBOL__GET_OFF:
         return getGetOff();
       case TabletUIDSLPackage.SYMBOL__CLASS:
         return getClass_();
       case TabletUIDSLPackage.SYMBOL__BGICON:
         return getBgicon();
-      case TabletUIDSLPackage.SYMBOL__ON_BACK_GROUND_COLOR:
-        if (resolve) return getOnBackGroundColor();
-        return basicGetOnBackGroundColor();
-      case TabletUIDSLPackage.SYMBOL__ON_COLOR:
-        if (resolve) return getOnColor();
-        return basicGetOnColor();
       case TabletUIDSLPackage.SYMBOL__OFF_COLOR:
         if (resolve) return getOffColor();
         return basicGetOffColor();
@@ -580,6 +512,9 @@ public class SymbolImpl extends WidgetImpl implements Symbol
         getGetOn().clear();
         getGetOn().addAll((Collection<? extends String>)newValue);
         return;
+      case TabletUIDSLPackage.SYMBOL__GET_WARN:
+        setGetWarn((String)newValue);
+        return;
       case TabletUIDSLPackage.SYMBOL__GET_OFF:
         getGetOff().clear();
         getGetOff().addAll((Collection<? extends String>)newValue);
@@ -589,12 +524,6 @@ public class SymbolImpl extends WidgetImpl implements Symbol
         return;
       case TabletUIDSLPackage.SYMBOL__BGICON:
         setBgicon((String)newValue);
-        return;
-      case TabletUIDSLPackage.SYMBOL__ON_BACK_GROUND_COLOR:
-        setOnBackGroundColor((Color)newValue);
-        return;
-      case TabletUIDSLPackage.SYMBOL__ON_COLOR:
-        setOnColor((Color)newValue);
         return;
       case TabletUIDSLPackage.SYMBOL__OFF_COLOR:
         setOffColor((Color)newValue);
@@ -634,6 +563,9 @@ public class SymbolImpl extends WidgetImpl implements Symbol
       case TabletUIDSLPackage.SYMBOL__GET_ON:
         getGetOn().clear();
         return;
+      case TabletUIDSLPackage.SYMBOL__GET_WARN:
+        setGetWarn(GET_WARN_EDEFAULT);
+        return;
       case TabletUIDSLPackage.SYMBOL__GET_OFF:
         getGetOff().clear();
         return;
@@ -642,12 +574,6 @@ public class SymbolImpl extends WidgetImpl implements Symbol
         return;
       case TabletUIDSLPackage.SYMBOL__BGICON:
         setBgicon(BGICON_EDEFAULT);
-        return;
-      case TabletUIDSLPackage.SYMBOL__ON_BACK_GROUND_COLOR:
-        setOnBackGroundColor((Color)null);
-        return;
-      case TabletUIDSLPackage.SYMBOL__ON_COLOR:
-        setOnColor((Color)null);
         return;
       case TabletUIDSLPackage.SYMBOL__OFF_COLOR:
         setOffColor((Color)null);
@@ -681,16 +607,14 @@ public class SymbolImpl extends WidgetImpl implements Symbol
         return GET_EDEFAULT == null ? get != null : !GET_EDEFAULT.equals(get);
       case TabletUIDSLPackage.SYMBOL__GET_ON:
         return getOn != null && !getOn.isEmpty();
+      case TabletUIDSLPackage.SYMBOL__GET_WARN:
+        return GET_WARN_EDEFAULT == null ? getWarn != null : !GET_WARN_EDEFAULT.equals(getWarn);
       case TabletUIDSLPackage.SYMBOL__GET_OFF:
         return getOff != null && !getOff.isEmpty();
       case TabletUIDSLPackage.SYMBOL__CLASS:
         return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
       case TabletUIDSLPackage.SYMBOL__BGICON:
         return BGICON_EDEFAULT == null ? bgicon != null : !BGICON_EDEFAULT.equals(bgicon);
-      case TabletUIDSLPackage.SYMBOL__ON_BACK_GROUND_COLOR:
-        return onBackGroundColor != null;
-      case TabletUIDSLPackage.SYMBOL__ON_COLOR:
-        return onColor != null;
       case TabletUIDSLPackage.SYMBOL__OFF_COLOR:
         return offColor != null;
       case TabletUIDSLPackage.SYMBOL__ICONS:
@@ -720,6 +644,8 @@ public class SymbolImpl extends WidgetImpl implements Symbol
     result.append(get);
     result.append(", getOn: ");
     result.append(getOn);
+    result.append(", getWarn: ");
+    result.append(getWarn);
     result.append(", getOff: ");
     result.append(getOff);
     result.append(", class: ");

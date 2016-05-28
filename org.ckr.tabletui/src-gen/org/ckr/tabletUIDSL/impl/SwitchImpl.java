@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getGet <em>Get</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getGetOn <em>Get On</em>}</li>
+ *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getSetOn <em>Set On</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getGetOff <em>Get Off</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.ckr.tabletUIDSL.impl.SwitchImpl#getOnColor <em>On Color</em>}</li>
@@ -96,6 +97,26 @@ public class SwitchImpl extends WidgetImpl implements Switch
    * @ordered
    */
   protected String getOn = GET_ON_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSetOn() <em>Set On</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSetOn()
+   * @generated
+   * @ordered
+   */
+  protected static final String SET_ON_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSetOn() <em>Set On</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSetOn()
+   * @generated
+   * @ordered
+   */
+  protected String setOn = SET_ON_EDEFAULT;
 
   /**
    * The default value of the '{@link #getGetOff() <em>Get Off</em>}' attribute.
@@ -295,6 +316,29 @@ public class SwitchImpl extends WidgetImpl implements Switch
     getOn = newGetOn;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.SWITCH__GET_ON, oldGetOn, getOn));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getSetOn()
+  {
+    return setOn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSetOn(String newSetOn)
+  {
+    String oldSetOn = setOn;
+    setOn = newSetOn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TabletUIDSLPackage.SWITCH__SET_ON, oldSetOn, setOn));
   }
 
   /**
@@ -534,6 +578,8 @@ public class SwitchImpl extends WidgetImpl implements Switch
         return getGet();
       case TabletUIDSLPackage.SWITCH__GET_ON:
         return getGetOn();
+      case TabletUIDSLPackage.SWITCH__SET_ON:
+        return getSetOn();
       case TabletUIDSLPackage.SWITCH__GET_OFF:
         return getGetOff();
       case TabletUIDSLPackage.SWITCH__CLASS:
@@ -573,6 +619,9 @@ public class SwitchImpl extends WidgetImpl implements Switch
         return;
       case TabletUIDSLPackage.SWITCH__GET_ON:
         setGetOn((String)newValue);
+        return;
+      case TabletUIDSLPackage.SWITCH__SET_ON:
+        setSetOn((String)newValue);
         return;
       case TabletUIDSLPackage.SWITCH__GET_OFF:
         setGetOff((String)newValue);
@@ -618,6 +667,9 @@ public class SwitchImpl extends WidgetImpl implements Switch
       case TabletUIDSLPackage.SWITCH__GET_ON:
         setGetOn(GET_ON_EDEFAULT);
         return;
+      case TabletUIDSLPackage.SWITCH__SET_ON:
+        setSetOn(SET_ON_EDEFAULT);
+        return;
       case TabletUIDSLPackage.SWITCH__GET_OFF:
         setGetOff(GET_OFF_EDEFAULT);
         return;
@@ -659,6 +711,8 @@ public class SwitchImpl extends WidgetImpl implements Switch
         return GET_EDEFAULT == null ? get != null : !GET_EDEFAULT.equals(get);
       case TabletUIDSLPackage.SWITCH__GET_ON:
         return GET_ON_EDEFAULT == null ? getOn != null : !GET_ON_EDEFAULT.equals(getOn);
+      case TabletUIDSLPackage.SWITCH__SET_ON:
+        return SET_ON_EDEFAULT == null ? setOn != null : !SET_ON_EDEFAULT.equals(setOn);
       case TabletUIDSLPackage.SWITCH__GET_OFF:
         return GET_OFF_EDEFAULT == null ? getOff != null : !GET_OFF_EDEFAULT.equals(getOff);
       case TabletUIDSLPackage.SWITCH__CLASS:
@@ -694,6 +748,8 @@ public class SwitchImpl extends WidgetImpl implements Switch
     result.append(get);
     result.append(", getOn: ");
     result.append(getOn);
+    result.append(", setOn: ");
+    result.append(setOn);
     result.append(", getOff: ");
     result.append(getOff);
     result.append(", class: ");
